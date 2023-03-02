@@ -22,7 +22,7 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         LoginPage loginPage = new LoginPage();
         ResetPasswordPage resetPasswordPage = new ResetPasswordPage();
 
-        public static string loginPageWithoutAnyAction = "";
+        //public static string loginPageWithoutAnyAction = "";
 
         [Given(@"I provide all required fields with valid data")]
         public void GivenIProvideAllRequiredFieldsWithValidData()
@@ -31,7 +31,6 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
             string password = ExcelUtils.ReadDataFromExcel("Password");
             loginPage.EnterUsername(username);
             loginPage.EnterPassword(password);
-
             ReporterClass.AddStepLog("Username provided: " + username);
             ReporterClass.AddStepLog("Password provided: " + password);
         }
@@ -41,35 +40,43 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         {
             loginPage.ClickLogin();
         }
+
+
         [Then(@"User should be redirected to Zeus main page after being prompted with message ""([^""]*)""")]
         public void ThenUserShouldBeRedirectedToZeusMainPageAfterBeingPromptedWithMessage(string message)
         {
             bool status = loginPage.ValidateLoginWaitMessage(message);
-            Assert.IsTrue(status);
+            Assert.IsTrue(status,"Correct waiting message is not getting displayed");
         }
+
+
         [Given(@"I provide all required fields with incorrect password")]
         public void GivenIProvideAllRequiredFieldsWithIncorrectPassword()
         {
             string username = ExcelUtils.ReadDataFromExcel("Username", 2);
             string password = ExcelUtils.ReadDataFromExcel("Password", 2);
-
             loginPage.EnterUsername(username);
             loginPage.EnterPassword(password);
             ReporterClass.AddStepLog("Username provided: " + username);
             ReporterClass.AddStepLog("Password provided: " + password);
-
         }
+
+
         [Then(@"User should be prompted with message ""([^""]*)""")]
         public void ThenUserShouldBePromptedWithMessage(string p0)
         {
             string actual = loginPage.GetLoginErrorMessage();
             Assert.AreEqual(actual, p0,"Wrong Error Message");
+            ReporterClass.AddStepLog("Message shown : " + actual);
         }
+
+
         [Given(@"I open Forgot Password Page")]
         public void GivenIOpenForgotPasswordPage()
         {
             loginPage.OpenForgotPasswordPage();
         }
+
 
         [Given(@"I provide Valid Username")]
         public void GivenIProvideValidUsername(Table table)
@@ -79,35 +86,39 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
             ReporterClass.AddStepLog("Valid Username entered : " + data.ValidUsername);
         }
 
+
         [When(@"I click Reset Password")]
         public void WhenIClickResetPassword()
         {
             resetPasswordPage.ClickResetPassword();
         }
 
+
         [Then(@"User should be redirected to the Login Page and receive ""([^""]*)""")]
         public void ThenUserShouldBeRedirectedToTheLoginPageAndReceive(string p0)
         {
             Assert.IsTrue(loginPage.ValidateLoginPage());
             Assert.AreEqual(p0,loginPage.GetEmailSentToRegisteredEmailmessage(),"Actual message and Expected message are not same");
-             ReporterClass.AddStepLog("Message dispalyed : " + loginPage.GetEmailSentToRegisteredEmailmessage());
+            ReporterClass.AddStepLog("Message dispalyed : " + loginPage.GetEmailSentToRegisteredEmailmessage());
         }
+
 
         [Given(@"I provide all required fields with non existing Username and password")]
         public void GivenIProvideAllRequiredFieldsWithNonExistingUsernameAndPassword()
         {
             string InvalidUsername = ExcelUtils.ReadDataFromExcel("Username", 3);
             string InvalidPassword = ExcelUtils.ReadDataFromExcel("Password", 3);
-
             loginPage.EnterUsername(InvalidUsername);
             loginPage.EnterPassword(InvalidPassword);
             ReporterClass.AddStepLog("Username provided: " + InvalidUsername);
             ReporterClass.AddStepLog("Password provided: " + InvalidPassword);
         }
+
+
         [Given(@"I don't provide any Username or password")]
         public void GivenIDontProvideAnyUsernameOrPassword()
         {
-            loginPageWithoutAnyAction = loginPage.getFullPageSource();
+            //loginPageWithoutAnyAction = loginPage.getFullPageSource();
 
             loginPage.EnterUsername(" ");
             loginPage.EnterPassword(" ");
@@ -124,25 +135,32 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
             //Assert.AreEqual(pgSrc, loginPageWithoutAnyAction,"Before and After page are not same");
             Assert.IsTrue(loginPage.ValidateLoginPage());
         }
+
+
         [When(@"I click Forgot Password\?")]
         public void WhenIClickForgotPassword()
         {
             loginPage.OpenForgotPasswordPage();
         }
+
+
         [Then(@"User should be redirected to Forgot Password page")]
         public void ThenUserShouldBeRedirectedToForgotPasswordPage()
         {
             bool status = loginPage.ValidateResetPasswordPage();
             Assert.IsTrue(status,"User is not redirected to forgot password page");
         }
+
+
         [Then(@"User should receive ""([^""]*)""")]
         public void ThenUserShouldReceive(string expected)
         {
             string actual = resetPasswordPage.GetUsernameRequiredMessage();
             Assert.AreEqual(expected, actual,"Correct waring message is not displaying");
             ReporterClass.AddStepLog("Message shown : " + actual);
-
         }
+
+
         [Given(@"I provide an invalid Username")]
         public void GivenIProvideAnInvalidUsername()
         {
