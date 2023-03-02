@@ -14,4 +14,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SpecFlowNunitTestAutomation
-build_property.ProjectDir = D:\GitLabMindfire\ZeusDemo\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\
+build_property.ProjectDir = D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\

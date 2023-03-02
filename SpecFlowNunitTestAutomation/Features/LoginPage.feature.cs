@@ -88,12 +88,10 @@ namespace SpecFlowNunitTestAutomation.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify User access when login information is valid")]
         [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_0001")]
-        [NUnit.Framework.CategoryAttribute("PositiveTests")]
         public void VerifyUserAccessWhenLoginInformationIsValid()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC_Zeus_Login_0001",
-                    "PositiveTests"};
+                    "TC_Zeus_Login_0001"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify User access when login information is valid", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9
@@ -126,12 +124,10 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify User access when Username is valid and password is incorrect")]
         [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_0002")]
-        [NUnit.Framework.CategoryAttribute("NegativeTests")]
         public void VerifyUserAccessWhenUsernameIsValidAndPasswordIsIncorrect()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC_Zeus_Login_0002",
-                    "NegativeTests"};
+                    "TC_Zeus_Login_0002"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify User access when Username is valid and password is incorrect", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 16

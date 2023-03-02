@@ -743,5 +743,10 @@ namespace SpecFlowNunitTestAutomation.Utils
 
             driver = null;
         }
+
+        public void StopPageLoad(By ele)
+        {
+            driver.FindElement(ele).SendKeys(Keys.Escape);
+        }
     }
 }

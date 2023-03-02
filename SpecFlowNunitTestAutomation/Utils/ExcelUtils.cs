@@ -12,7 +12,7 @@ namespace SpecFlowNunitTestAutomation.Utils
 
         public static string ReadDataFromExcel(String columnName)
         {
-            string pathOfExcelFile = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent + @"\TestData\TestData.xls";
+            string pathOfExcelFile = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent + @"\TestData\TestData.xlsx";
             string testData;
 
             //open file and returns as Stream
@@ -53,7 +53,7 @@ namespace SpecFlowNunitTestAutomation.Utils
 
         public static string ReadDataFromExcel(String columnName, int rowNum)
         {
-            string pathOfExcelFile = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent + @"\TestData\TestData.xls";
+            string pathOfExcelFile = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent + @"\TestData\TestData.xlsx";
             string testData;
 
             //open file and returns as Stream

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpecFlowNunitTestAutomation.TableData
 {
-    public  class LoginPageTableData
+    public class ResetPasswordPageTableData
     {
         public string ValidUsername { get; set; }
     }
