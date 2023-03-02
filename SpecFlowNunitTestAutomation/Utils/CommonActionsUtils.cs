@@ -748,5 +748,10 @@ namespace SpecFlowNunitTestAutomation.Utils
         {
             driver.FindElement(ele).SendKeys(Keys.Escape);
         }
+
+        public string getPageSource()
+        {
+            return driver.PageSource;
+        }
     }
 }

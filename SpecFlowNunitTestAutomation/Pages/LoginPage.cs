@@ -70,5 +70,18 @@ namespace SpecFlowNunitTestAutomation.Pages
         {
             return GetTextValue(EmailSentToEmailMessage, "email sent to email");
         }
+
+        public string getFullPageSource()
+        {
+            return getPageSource();
+        }
+
+        public bool ValidateResetPasswordPage()
+        {
+            if (GetPageURL().Contains("ForgotPassword"))
+                return true;
+            else
+                return false;
+        }
     }
 }
