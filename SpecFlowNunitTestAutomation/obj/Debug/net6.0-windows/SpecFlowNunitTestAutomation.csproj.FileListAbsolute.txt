@@ -586,18 +586,11 @@ D:\My Github Selenium Frameworks\ZeusTestAutomation\SpecFlowNunitTestAutomation\
 D:\My Github Selenium Frameworks\ZeusTestAutomation\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\ref\SpecFlowNunitTestAutomation.dll
 D:\My Github Selenium Frameworks\ZeusTestAutomation\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.pdb
 D:\My Github Selenium Frameworks\ZeusTestAutomation\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.genruntimeconfig.cache
-D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.csproj.AssemblyReference.cache
-D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.GeneratedMSBuildEditorConfig.editorconfig
-D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.AssemblyInfoInputs.cache
-D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.AssemblyInfo.cs
-D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.csproj.CoreCompileInputs.cache
-D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.dll
-D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.pdb
-D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\testhost.exe
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\testhost.dll
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\LivingDoc.Dtos.dll
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\LivingDoc.SpecFlowPlugin.dll
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\testhost.exe
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\NUnit3.TestAdapter.dll
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\NUnit3.TestAdapter.pdb
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\nunit.engine.dll
@@ -783,7 +776,14 @@ D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\n
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.csproj.AssemblyReference.cache
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.GeneratedMSBuildEditorConfig.editorconfig
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.AssemblyInfoInputs.cache
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.AssemblyInfo.cs
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.csproj.CoreCompileInputs.cache
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.csproj.CopyComplete
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.dll
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\refint\SpecFlowNunitTestAutomation.dll
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.pdb
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.genruntimeconfig.cache
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\ref\SpecFlowNunitTestAutomation.dll

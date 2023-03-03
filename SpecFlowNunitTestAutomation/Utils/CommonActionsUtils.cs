@@ -753,5 +753,10 @@ namespace SpecFlowNunitTestAutomation.Utils
         {
             return driver.PageSource;
         }
+
+        public void ScrollTillEndOfPage()
+        {
+            ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 150)");
+        }
     }
 }

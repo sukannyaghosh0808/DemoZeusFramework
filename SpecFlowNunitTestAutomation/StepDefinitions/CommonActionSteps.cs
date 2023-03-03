@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using SpecFlowNunitTestAutomation.Hooks;
 using SpecFlowNunitTestAutomation.Pages;
+using SpecFlowNunitTestAutomation.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,9 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
     public sealed class CommonActionSteps
     {
         LoginPage loginPage = new LoginPage();
+        DashboardPage dashboardPage = new DashboardPage();
 
+        //Common steps for Login page
         [Given(@"Launch the Zeus application")]
         public void GivenLaunchTheZeusApplication()
         {
@@ -25,6 +28,49 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         {
             bool loginStatus= loginPage.ValidateLoginPage();
             Assert.IsTrue(loginStatus,"User is already logged in. Please log out and try!");
+        }
+
+
+
+        //Common Steps for Patient Browser Page
+        [Given(@"I login to the Zeus application with valid credentials")]
+        public void GivenILoginToTheZeusApplicationWithValidCredentials()
+        {
+            string username = ExcelUtils.ReadDataFromExcel("Username");
+            string password = ExcelUtils.ReadDataFromExcel("Password");
+            loginPage.EnterUsername(username);
+            loginPage.EnterPassword(password);
+            loginPage.ClickLogin();
+            ReporterClass.AddStepLog("Username provided: " + username);
+            ReporterClass.AddStepLog("Password provided: " + password);
+        }
+
+
+        [When(@"I click on distribution center change button")]
+        public void WhenIClickOnDistributionCenterChangeButton()
+        {
+            dashboardPage.ClickOnDistributionCenterChangeButton();
+        }
+
+        static string store = "5001 | Doctor - Mishawaka";
+        [When(@"I select a store randomly")]
+        public void WhenISelectAStoreRandomly()
+        {            
+            dashboardPage.SelectAnyStore(store);
+        }
+
+
+        [Then(@"The store should change to what was selected randomly")]
+        public void ThenTheStoreShouldChangeToWhatWasSelectedRandomly()
+        {
+            if(store==dashboardPage.GetCurrentStoreName())
+            {
+                ReporterClass.AddStepLog("Selected store : " + store);
+            }
+            else
+            {
+                Assert.Fail("Could not select proper store ");
+            }
         }
 
     }
