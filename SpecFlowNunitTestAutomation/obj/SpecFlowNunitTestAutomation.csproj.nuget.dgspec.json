@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitLabMindfire\\ZeusDemo\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\SpecFlowNunitTestAutomation.csproj": {}
+    "D:\\Zeus\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\SpecFlowNunitTestAutomation.csproj": {}
   },
   "projects": {
-    "D:\\GitLabMindfire\\ZeusDemo\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\SpecFlowNunitTestAutomation.csproj": {
+    "D:\\Zeus\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\SpecFlowNunitTestAutomation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitLabMindfire\\ZeusDemo\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\SpecFlowNunitTestAutomation.csproj",
+        "projectUniqueName": "D:\\Zeus\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\SpecFlowNunitTestAutomation.csproj",
         "projectName": "SpecFlowNunitTestAutomation",
-        "projectPath": "D:\\GitLabMindfire\\ZeusDemo\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\SpecFlowNunitTestAutomation.csproj",
+        "projectPath": "D:\\Zeus\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\SpecFlowNunitTestAutomation.csproj",
         "packagesPath": "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\",
-        "outputPath": "D:\\GitLabMindfire\\ZeusDemo\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\obj\\",
+        "outputPath": "D:\\Zeus\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

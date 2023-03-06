@@ -1,225 +1,179 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NPOI.OpenXmlFormats.Vml.Office;
 using NUnit.Framework;
 using SpecFlowNunitTestAutomation.Hooks;
 using SpecFlowNunitTestAutomation.Pages;
 using SpecFlowNunitTestAutomation.TableData;
 using SpecFlowNunitTestAutomation.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SpecFlowNunitTestAutomation.StepDefinitions
 {
     [Binding]
     public sealed class LoginPageSteps
     {
-        LoginPage loginPage = new();
+        LoginPage loginPage = new LoginPage();
+        ResetPasswordPage resetPasswordPage = new ResetPasswordPage();
         DashboardPage dashboardPage = new();
 
-        [Given(@"Launch the Zeus application")]
-        public void GivenLaunchTheZeusApplication()
-        {
-            loginPage.LaunchTheZeusApplication();
-        }
-
-        [Given(@"I login to the Zeus application with valid credentials")]
-        public void GivenILoginToTheZeusApplicationWithValidCredentials()
-        {
-            string userName = ExcelUtils.ReadDataFromExcel("Username");
-            string password = ExcelUtils.ReadDataFromExcel("Password");
-
-            loginPage.DoLogin(userName, password);
-        }
-
-        [Given(@"User is not logged in")]
-        public void GivenUserIsNotLoggedIn()
-        {
-            bool LoginPageURL = loginPage.ValidateLoginPageURL();
-            if (LoginPageURL == true)
-            {
-                ReporterClass.AddStepLog("----->User is not logged in");
-            }
-            else if (LoginPageURL == false)
-            {
-                ReporterClass.AddStepLog("----->User is already logged in. Do logout");
-                dashboardPage.Logout();
-            }
-        }
+        //public static string loginPageWithoutAnyAction = "";
 
         [Given(@"I provide all required fields with valid data")]
         public void GivenIProvideAllRequiredFieldsWithValidData()
         {
-            string userName = ExcelUtils.ReadDataFromExcel("Username");
+            string username = ExcelUtils.ReadDataFromExcel("Username");
             string password = ExcelUtils.ReadDataFromExcel("Password");
-
-            loginPage.EnterUserName(userName);
+            loginPage.EnterUsername(username);
             loginPage.EnterPassword(password);
+            ReporterClass.AddStepLog("Username provided: " + username);
+            ReporterClass.AddStepLog("Password provided: " + password);
         }
 
         [When(@"I click on Login")]
         public void WhenIClickOnLogin()
         {
-            loginPage.ClickOnLogin();
+            loginPage.ClickLogin();
         }
+
+        [Then(@"Verify user is landed on the dashboard page")]
+        public void ThenVerifyUserIsLandedOnTheDashboardPage()
+        {
+            Assert.True(dashboardPage.validateDashboardPageIcon(), "User is not landed on dashboard page");
+        }
+
 
         [Then(@"User should be redirected to Zeus main page after being prompted with message ""([^""]*)""")]
         public void ThenUserShouldBeRedirectedToZeusMainPageAfterBeingPromptedWithMessage(string message)
         {
-            /*bool SettingUpMsgPresence = loginPage.CheckZeusSettingUpMsg();
-            if (SettingUpMsgPresence == true)
-            {
-                ReporterClass.AddStepLog("----->The following message appeared: " + message);
-            }
-            else if (SettingUpMsgPresence == false)
-            {
-                Assert.Fail("The following message didn't appear: " + message);
-            }*/
-
-            bool DashboardPageTitle = dashboardPage.ValidateDashboardPageTitle();
-            if (DashboardPageTitle == true)
-            {
-                ReporterClass.AddStepLog("----->User is in Dashboard Page");
-            }
-            else if (DashboardPageTitle == false)
-            {
-                Assert.Fail("User is not redirected to Dashboard Page. Please check again");
-            }
+            bool status = loginPage.ValidateLoginWaitMessage(message);
+            Assert.IsTrue(status,"Correct waiting message is not getting displayed");
         }
+
 
         [Given(@"I provide all required fields with incorrect password")]
         public void GivenIProvideAllRequiredFieldsWithIncorrectPassword()
         {
-            string userName = ExcelUtils.ReadDataFromExcel("Username");
-            string password = "xyz"; //Inavlid password for the username
-
-            loginPage.EnterUserName(userName);
+            string username = ExcelUtils.ReadDataFromExcel("Username", 2);
+            string password = ExcelUtils.ReadDataFromExcel("Password", 2);
+            loginPage.EnterUsername(username);
             loginPage.EnterPassword(password);
-
-            ReporterClass.AddStepLog("----->login with valid Username: " + userName + " and invalid Password: " + password);
+            ReporterClass.AddStepLog("Username provided: " + username);
+            ReporterClass.AddStepLog("Password provided: " + password);
         }
+
 
         [Then(@"User should be prompted with message ""([^""]*)""")]
-        public void ThenUserShouldBePromptedWithMessage(string validationMsg)
+        public void ThenUserShouldBePromptedWithMessage(string p0)
         {
-            string ActualValidationMsg = loginPage.GetLoginValidationMessage();
-
-            Assert.AreEqual(validationMsg, ActualValidationMsg, "Validation error message: \"" + validationMsg + "\" is not displayed.");
+            string actual = loginPage.GetLoginErrorMessage();
+            Assert.AreEqual(actual, p0,"Wrong Error Message");
+            ReporterClass.AddStepLog("Message shown : " + actual);
         }
 
-        [Given(@"I provide all required fields with non existing Username and password")]
-        public void GivenIProvideAllRequiredFieldsWithNonExistingUsernameAndPassword()
-        {
-            string userName = "xxyyzz"; //invalid username
-            string password = "xyz"; //Inavlid password
-
-            loginPage.EnterUserName(userName);
-            loginPage.EnterPassword(password);
-
-            ReporterClass.AddStepLog("----->login with invalid Username: " + userName + " and invalid Password: " + password);
-        }
-
-        [Given(@"I don't provide any Username or password")]
-        public void GivenIDontProvideAnyUsernameOrPassword()
-        {
-            string userName = ""; //invalid username
-            string password = ""; //Inavlid password
-
-            loginPage.EnterUserName(userName);
-            loginPage.EnterPassword(password);
-
-            ReporterClass.AddStepLog("----->login with empty username and password");
-        }
-
-        [Then(@"nothing should happen and user stays on login page only")]
-        public void ThenNothingShouldHappenAndUserStaysOnLoginPageOnly()
-        {
-            bool LoginPageURL = loginPage.ValidateLoginPageURL();
-            if (LoginPageURL == true)
-            {
-                ReporterClass.AddStepLog("----->User is not logged in and stays on login page.");
-            }
-            else if (LoginPageURL == false)
-            {
-                //ReporterClass.AddStepLog("----->User was logged in with empty username and password provided");
-                Assert.Fail("----->User was logged in with empty username and password provided.");
-            }
-        }
-
-        [When(@"I click Forgot Password\?")]
-        public void WhenIClickForgotPassword()
-        {
-            loginPage.ClickForgotPassword();
-        }
-
-        [Then(@"User should be redirected to Forgot Password page")]
-        public void ThenUserShouldBeRedirectedToForgotPasswordPage()
-        {
-            bool FPURL = loginPage.ValidateFPPageURL();
-            Assert.True(FPURL, "User is not in Forgot password page");
-        }
 
         [Given(@"I open Forgot Password Page")]
         public void GivenIOpenForgotPasswordPage()
         {
-            loginPage.ClickForgotPassword();
+            loginPage.OpenForgotPasswordPage();
         }
 
-        [When(@"I click Reset Password")]
-        public void WhenIClickResetPassword()
-        {
-            loginPage.ClickResetPassword();
-        }
-
-        [Then(@"User should receive ""([^""]*)""")]
-        public void ThenUserShouldReceive(string message)
-        {
-            string ActualValidationMsg = loginPage.GetFPValidationMessage();
-
-            Assert.AreEqual(message, ActualValidationMsg, "Validation error message: \"" + message + "\" is not displayed.");
-        }
-
-        [Given(@"I provide an invalid Username")]
-        public void GivenIProvideAnInvalidUsername()
-        {
-            string userName = "xyz"; //invalid username
-            loginPage.EnterUsernameInFP(userName);
-        }
 
         [Given(@"I provide Valid Username")]
         public void GivenIProvideValidUsername(Table table)
         {
-            var record = table.CreateInstance<LoginPageTableData>();
-
-            string FPUsername = record.ValidUsername;
-
-            ReporterClass.AddStepLog("----->Username provided is : " + FPUsername);
-
-            loginPage.EnterUsernameInFP(FPUsername);
+            var data = table.CreateInstance<ResetPasswordPageTableData>();
+            resetPasswordPage.EnterUsername(data.ValidUsername);
+            ReporterClass.AddStepLog("Valid Username entered : " + data.ValidUsername);
         }
 
-        [Then(@"User should be redirected to the Login Page and receive ""([^""]*)""")]
-        public void ThenUserShouldBeRedirectedToTheLoginPageAndReceive(string validationMsg)
+
+        [When(@"I click Reset Password")]
+        public void WhenIClickResetPassword()
         {
-            //Verify user in in login page now
-            bool LoginPageURL = loginPage.ValidateLoginPageURL();
+            resetPasswordPage.ClickResetPassword();
+        }
 
-            //Verify the message "Email sent to registered Email" is displayed
-            string ActualValidationMsg = loginPage.GetLoginValidationMessage();
 
-            /*Functionally, this results in NUnit storing any failures encountered in the block and reporting all of them 
-             * together upon exit from the block.If both asserts failed,then both would be reported.
-             * The test itself would terminate at the end of the block if any failures were encountered, 
-             * but would continue otherwise.*/
+        [Then(@"User should be redirected to the Login Page and receive ""([^""]*)""")]
+        public void ThenUserShouldBeRedirectedToTheLoginPageAndReceive(string p0)
+        {
+            Assert.IsTrue(loginPage.ValidateLoginPage());
+            Assert.AreEqual(p0,loginPage.GetEmailSentToRegisteredEmailmessage(),"Actual message and Expected message are not same");
+            ReporterClass.AddStepLog("Message dispalyed : " + loginPage.GetEmailSentToRegisteredEmailmessage());
+        }
 
-            Assert.Multiple(() =>
-              {
-                  Assert.True(LoginPageURL, "User is not redirected to login page. The url is not of login page");
-                  Assert.AreEqual(validationMsg, ActualValidationMsg, "Validation message: \"" + validationMsg + "\" is not displayed.");
-              });
 
+        [Given(@"I provide all required fields with non existing Username and password")]
+        public void GivenIProvideAllRequiredFieldsWithNonExistingUsernameAndPassword()
+        {
+            string InvalidUsername = ExcelUtils.ReadDataFromExcel("Username", 3);
+            string InvalidPassword = ExcelUtils.ReadDataFromExcel("Password", 3);
+            loginPage.EnterUsername(InvalidUsername);
+            loginPage.EnterPassword(InvalidPassword);
+            ReporterClass.AddStepLog("Username provided: " + InvalidUsername);
+            ReporterClass.AddStepLog("Password provided: " + InvalidPassword);
+        }
+
+
+        [Given(@"I don't provide any Username or password")]
+        public void GivenIDontProvideAnyUsernameOrPassword()
+        {
+            //loginPageWithoutAnyAction = loginPage.getFullPageSource();
+
+            loginPage.EnterUsername(" ");
+            loginPage.EnterPassword(" ");
+            ReporterClass.AddStepLog("Username provided as blank");
+            ReporterClass.AddStepLog("Password provided as blank");
+        }
+        [Then(@"nothing should happen and user stays on login page only")]
+        public void ThenNothingShouldHappenAndUserStaysOnLoginPageOnly()
+        {
+            //
+            //How to Validate Nothing should happen?
+            //
+            string pgSrc = loginPage.getPageSource();
+            //Assert.AreEqual(pgSrc, loginPageWithoutAnyAction,"Before and After page are not same");
+            Assert.IsTrue(loginPage.ValidateLoginPage());
+        }
+
+
+        [When(@"I click Forgot Password\?")]
+        public void WhenIClickForgotPassword()
+        {
+            loginPage.OpenForgotPasswordPage();
+        }
+
+
+        [Then(@"User should be redirected to Forgot Password page")]
+        public void ThenUserShouldBeRedirectedToForgotPasswordPage()
+        {
+            bool status = loginPage.ValidateResetPasswordPage();
+            Assert.IsTrue(status,"User is not redirected to forgot password page");
+        }
+
+
+        [Then(@"User should receive ""([^""]*)""")]
+        public void ThenUserShouldReceive(string expected)
+        {
+            string actual = resetPasswordPage.GetUsernameRequiredMessage();
+            Assert.AreEqual(expected, actual,"Correct waring message is not displaying");
+            ReporterClass.AddStepLog("Message shown : " + actual);
+        }
+
+
+        [Given(@"I provide an invalid Username")]
+        public void GivenIProvideAnInvalidUsername()
+        {
+            string InvalidUsername = ExcelUtils.ReadDataFromExcel("Username", 3);
+            resetPasswordPage.EnterUsername(InvalidUsername);
+            ReporterClass.AddStepLog("Username provided: " + InvalidUsername);
         }
 
     }

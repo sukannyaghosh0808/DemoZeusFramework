@@ -88,12 +88,10 @@ namespace SpecFlowNunitTestAutomation.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify User access when login information is valid")]
         [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_0001")]
-        [NUnit.Framework.CategoryAttribute("PositiveTests")]
         public void VerifyUserAccessWhenLoginInformationIsValid()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC_Zeus_Login_0001",
-                    "PositiveTests"};
+                    "TC_Zeus_Login_0001"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify User access when login information is valid", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9
@@ -115,9 +113,8 @@ this.FeatureBackground();
 #line 12
  testRunner.When("I click on Login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 13
- testRunner.Then("User should be redirected to Zeus main page after being prompted with message \"Pl" +
-                        "ease wait. Zeus is setting up the configurations for you!!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 14
+ testRunner.Then("Verify user is landed on the dashboard page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -126,15 +123,13 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify User access when Username is valid and password is incorrect")]
         [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_0002")]
-        [NUnit.Framework.CategoryAttribute("NegativeTests")]
         public void VerifyUserAccessWhenUsernameIsValidAndPasswordIsIncorrect()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC_Zeus_Login_0002",
-                    "NegativeTests"};
+                    "TC_Zeus_Login_0002"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify User access when Username is valid and password is incorrect", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 16
+#line 17
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -147,23 +142,23 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 17
+#line 18
  testRunner.Given("I provide all required fields with incorrect password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 19
+#line 20
  testRunner.When("I click on Login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 21
  testRunner.Then("User should be prompted with message \"Invalid Credentials. You have 4 more attemp" +
                         "t(s) left. To generate new password, use Forgot Password option.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 22
+#line 23
  testRunner.Given("I provide all required fields with incorrect password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 23
+#line 24
  testRunner.When("I click on Login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 25
  testRunner.Then("User should be prompted with message \"Invalid Credentials. You have 3 more attemp" +
                         "t(s) left. To generate new password, use Forgot Password option.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -173,16 +168,16 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Forgot Password while Username is valid")]
-        [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_FP_0003")]
+        [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_0003")]
         [NUnit.Framework.CategoryAttribute("PositiveTests")]
         public void VerifyForgotPasswordWhileUsernameIsValid()
         {
             string[] tagsOfScenario = new string[] {
-                    "TC_Zeus_Login_FP_0003",
+                    "TC_Zeus_Login_0003",
                     "PositiveTests"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Forgot Password while Username is valid", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 27
+#line 28
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -195,22 +190,207 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 28
+#line 29
  testRunner.Given("I open Forgot Password Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "ValidUsername"});
                 table1.AddRow(new string[] {
                             "aaly"});
-#line 29
+#line 30
  testRunner.And("I provide Valid Username", ((string)(null)), table1, "And ");
 #line hidden
-#line 32
+#line 33
  testRunner.When("I click Reset Password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 33
+#line 34
  testRunner.Then("User should be redirected to the Login Page and receive \"Email sent to registered" +
                         " Email\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify User access when User does not exist")]
+        [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_0004")]
+        [NUnit.Framework.CategoryAttribute("NegativeTests")]
+        public void VerifyUserAccessWhenUserDoesNotExist()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "TC_Zeus_Login_0004",
+                    "NegativeTests"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify User access when User does not exist", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 37
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 38
+ testRunner.Given("I provide all required fields with non existing Username and password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 40
+ testRunner.When("I click on Login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 41
+ testRunner.Then("User should be prompted with message \"Username doesn\'t exist\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify User access when Username, Password or both are left empty")]
+        [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_0005")]
+        [NUnit.Framework.CategoryAttribute("NegativeTests")]
+        public void VerifyUserAccessWhenUsernamePasswordOrBothAreLeftEmpty()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "TC_Zeus_Login_0005",
+                    "NegativeTests"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify User access when Username, Password or both are left empty", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 44
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 45
+ testRunner.Given("I don\'t provide any Username or password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 47
+ testRunner.When("I click on Login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 48
+ testRunner.Then("nothing should happen and user stays on login page only", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify Forgot Password")]
+        [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_0006")]
+        [NUnit.Framework.CategoryAttribute("PositiveTests")]
+        public void VerifyForgotPassword()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "TC_Zeus_Login_0006",
+                    "PositiveTests"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Forgot Password", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 52
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 53
+ testRunner.When("I click Forgot Password?", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 54
+ testRunner.Then("User should be redirected to Forgot Password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify Forgot Password while Username is empty")]
+        [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_0007")]
+        [NUnit.Framework.CategoryAttribute("NegativeTests")]
+        public void VerifyForgotPasswordWhileUsernameIsEmpty()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "TC_Zeus_Login_0007",
+                    "NegativeTests"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Forgot Password while Username is empty", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 57
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 58
+ testRunner.Given("I open Forgot Password Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 59
+ testRunner.When("I click Reset Password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 60
+ testRunner.Then("User should receive \"The Username field is required.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify Forgot Password while Username is invalid")]
+        [NUnit.Framework.CategoryAttribute("TC_Zeus_Login_0008")]
+        [NUnit.Framework.CategoryAttribute("NegativeTests")]
+        public void VerifyForgotPasswordWhileUsernameIsInvalid()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "TC_Zeus_Login_0008",
+                    "NegativeTests"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Forgot Password while Username is invalid", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 63
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 64
+ testRunner.Given("I open Forgot Password Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 65
+ testRunner.And("I provide an invalid Username", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 67
+ testRunner.When("I click Reset Password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 68
+ testRunner.Then("User should receive \"No such user exists.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
