@@ -21,6 +21,7 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
     {
         LoginPage loginPage = new LoginPage();
         ResetPasswordPage resetPasswordPage = new ResetPasswordPage();
+        DashboardPage dashboardPage = new();
 
         //public static string loginPageWithoutAnyAction = "";
 
@@ -39,6 +40,12 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         public void WhenIClickOnLogin()
         {
             loginPage.ClickLogin();
+        }
+
+        [Then(@"Verify user is landed on the dashboard page")]
+        public void ThenVerifyUserIsLandedOnTheDashboardPage()
+        {
+            Assert.True(dashboardPage.validateDashboardPageIcon(), "User is not landed on dashboard page");
         }
 
 

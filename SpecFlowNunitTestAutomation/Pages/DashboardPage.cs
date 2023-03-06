@@ -16,7 +16,7 @@ namespace SpecFlowNunitTestAutomation.Pages
         private static By storeSearchBar = By.XPath("//*[@name='StoreId_input']");
         private static By NavigationBarStoreName= By.XPath("//*[@id='store-quick-selector-content']/span[@class='currentValue']");
         private static By PatientBrowser = By.XPath("//*[@class='fa fa-user']//following-sibling::span[text()='Patient Browser']");
-
+        private static By DashboardpageIcon = By.XPath("//*[text()='Dashboard']");
 
         public void ClickOnDistributionCenterChangeButton()
         {
@@ -43,6 +43,15 @@ namespace SpecFlowNunitTestAutomation.Pages
         {
             ClickElement(PatientBrowser, "Patient Browser");
             return new PatientBrowserPage();
+        }
+
+        public bool validateDashboardPageIcon()
+        {
+            string dashboardIcon = GetTextValue(DashboardpageIcon, "dashboard icon");
+            if (dashboardIcon == "Dashboard")
+                return true;
+            else
+                return false;
         }
     }
 }

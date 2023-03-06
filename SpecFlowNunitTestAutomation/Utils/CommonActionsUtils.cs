@@ -391,6 +391,7 @@ namespace SpecFlowNunitTestAutomation.Utils
             {
                 IAlert alert = driver.SwitchTo().Alert();
                 alert.Accept();
+               
             }
             catch (Exception ex)
             {
@@ -398,6 +399,7 @@ namespace SpecFlowNunitTestAutomation.Utils
             }
         }
 
+        
         public void ScrollToElement(By Element, string ElementName)
         {
             WaitUntillElementToExist(Element, 10);
@@ -485,6 +487,8 @@ namespace SpecFlowNunitTestAutomation.Utils
         {
             ReadOnlyCollection<IWebElement> e = null;
             e = driver.FindElements(Element);
+
+            
 
             return e;
         }
@@ -758,5 +762,20 @@ namespace SpecFlowNunitTestAutomation.Utils
         {
             ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 150)");
         }
+
+        public IList<String> GetAllOptionsElements(By navelement)
+        {
+            IList<IWebElement> AllOptions = driver.FindElements(navelement);
+            IList<String> options = new List<String>();
+
+            int count = AllOptions.Count;
+            for (int i = 0; i < count; i++)
+            {
+                options.Add(AllOptions[i].Text);
+
+            }
+            return options;
+        }
+
     }
 }

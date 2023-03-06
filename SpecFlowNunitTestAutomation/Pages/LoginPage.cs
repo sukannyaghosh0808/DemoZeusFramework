@@ -14,7 +14,7 @@ namespace SpecFlowNunitTestAutomation.Pages
         private static By Username = By.Id("txtUserName");
         private static By Password = By.Id("Password");
         private static By LoginButton = By.Id("loginButton");
-        private static By LoginWaitMessage = By.Id("loginSpan");
+        private static By LoginWaitMessage = By.XPath("//*[text()='Please wait. Zeus is setting up the configurations for you!!']");
         private static By LoginErrorMessage = By.XPath("//*[@class='validation-summary-errors']/ul/li");
         private static By ForgotPassword = By.XPath("//*[text()='Forgot Password?']");
         private static By EmailSentToEmailMessage = By.XPath("//*[@class='validation-summary-errors']/ul/li");
@@ -51,7 +51,7 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public bool ValidateLoginWaitMessage(string message)
         {
-            //WaitForElementToBeVisible(LoginWaitMessage,1000);
+            WaitForElementToBeVisible(LoginWaitMessage,10);
             return GetTextFromPageSource(message);            
         }
 

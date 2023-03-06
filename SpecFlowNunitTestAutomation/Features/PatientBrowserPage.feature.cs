@@ -98,11 +98,13 @@ namespace SpecFlowNunitTestAutomation.Features
         [NUnit.Framework.DescriptionAttribute("Verify Patient Creation where all required fields are valid")]
         [NUnit.Framework.CategoryAttribute("TC_Zeus_PB_0001")]
         [NUnit.Framework.CategoryAttribute("PositiveTests")]
+        [NUnit.Framework.CategoryAttribute("test")]
         public void VerifyPatientCreationWhereAllRequiredFieldsAreValid()
         {
             string[] tagsOfScenario = new string[] {
                     "TC_Zeus_PB_0001",
-                    "PositiveTests"};
+                    "PositiveTests",
+                    "test"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Patient Creation where all required fields are valid", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
@@ -135,7 +137,7 @@ this.FeatureBackground();
 #line hidden
 #line 21
  testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
-                        "d to create in MRS\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -192,11 +194,13 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Verify Patient Creation where all required fields are valid except lastname")]
         [NUnit.Framework.CategoryAttribute("TC_Zeus_PB_0003")]
         [NUnit.Framework.CategoryAttribute("NegativeTests")]
+        [NUnit.Framework.CategoryAttribute("test")]
         public void VerifyPatientCreationWhereAllRequiredFieldsAreValidExceptLastname()
         {
             string[] tagsOfScenario = new string[] {
                     "TC_Zeus_PB_0003",
-                    "NegativeTests"};
+                    "NegativeTests",
+                    "test"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Patient Creation where all required fields are valid except lastname", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 36
@@ -286,11 +290,13 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Verify Patient Creation where all required fields are valid except DOB")]
         [NUnit.Framework.CategoryAttribute("TC_Zeus_PB_0005")]
         [NUnit.Framework.CategoryAttribute("NegativeTests")]
+        [NUnit.Framework.CategoryAttribute("test")]
         public void VerifyPatientCreationWhereAllRequiredFieldsAreValidExceptDOB()
         {
             string[] tagsOfScenario = new string[] {
                     "TC_Zeus_PB_0005",
-                    "NegativeTests"};
+                    "NegativeTests",
+                    "test"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Patient Creation where all required fields are valid except DOB", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 60
@@ -380,11 +386,13 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Verify Patient Creation where all required fields are valid except Phone Number")]
         [NUnit.Framework.CategoryAttribute("TC_Zeus_PB_0007")]
         [NUnit.Framework.CategoryAttribute("NegativeTests")]
+        [NUnit.Framework.CategoryAttribute("test")]
         public void VerifyPatientCreationWhereAllRequiredFieldsAreValidExceptPhoneNumber()
         {
             string[] tagsOfScenario = new string[] {
                     "TC_Zeus_PB_0007",
-                    "NegativeTests"};
+                    "NegativeTests",
+                    "test"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Patient Creation where all required fields are valid except Phone Number", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 84
@@ -416,8 +424,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 93
- testRunner.Then("Patient should not be created and validation message \"Phone number should contain" +
-                        " exact 10 digits\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should not be created and error message \"Phone number should contain exac" +
+                        "t 10 digits\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -465,8 +473,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 103
- testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
-                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
+                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 105
  testRunner.When("I click on create new patient button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -573,8 +581,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 132
- testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
-                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
+                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 135
  testRunner.When("I click on create new patient button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -587,8 +595,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 140
- testRunner.Then("Patient should not be created and validation message \"Patient with same details (" +
-                        "First Name, DOB, and Phone No.) already exist\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should not be created and error message \"Patient with same details (First" +
+                        " Name, DOB, and Phone No.) already exist\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -637,8 +645,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 152
- testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
-                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
+                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -648,11 +656,13 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Search patient by first name and last name")]
         [NUnit.Framework.CategoryAttribute("TC_Zeus_PB_0012")]
         [NUnit.Framework.CategoryAttribute("PositiveTests")]
+        [NUnit.Framework.CategoryAttribute("test")]
         public void SearchPatientByFirstNameAndLastName()
         {
             string[] tagsOfScenario = new string[] {
                     "TC_Zeus_PB_0012",
-                    "PositiveTests"};
+                    "PositiveTests",
+                    "test"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search patient by first name and last name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 155
@@ -684,8 +694,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 164
- testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
-                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
+                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 165
  testRunner.When("I search for the newly created patient by first name and last name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -864,8 +874,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 204
- testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
-                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
+                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 205
  testRunner.And("Recently added link should be visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

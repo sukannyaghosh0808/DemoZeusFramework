@@ -10,7 +10,8 @@ Scenario: Verify User access when login information is valid
 	Given I provide all required fields with valid data
     #Using valid Username and password
 	When I click on Login
-	Then User should be redirected to Zeus main page after being prompted with message "Please wait. Zeus is setting up the configurations for you!!"
+	#Then User should be redirected to Zeus main page after being prompted with message "Please wait. Zeus is setting up the configurations for you!!"
+	Then Verify user is landed on the dashboard page
 
 @TC_Zeus_Login_0002 
 Scenario: Verify User access when Username is valid and password is incorrect

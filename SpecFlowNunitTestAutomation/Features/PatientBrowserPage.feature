@@ -8,7 +8,7 @@ Background:
 	And I select a store randomly
 	Then The store should change to what was selected randomly
 
-@TC_Zeus_PB_0001 @PositiveTests
+@TC_Zeus_PB_0001 @PositiveTests @test
 Scenario: Verify Patient Creation where all required fields are valid
 	Given I open patient browser page
 	And Patient is not created already with the set of data provided
@@ -18,7 +18,7 @@ Scenario: Verify Patient Creation where all required fields are valid
 	    #All required fields are: Valid First Name, Valid Last Name, Valid Email, 
 	    #Valid Date of Birth, Valid Phone Number, Valid Gender, Valid Address Line 1, Valid Zip Code
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS" should show on screen
+	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
 
 @TC_Zeus_PB_0002 @NegativeTests
 Scenario: Verify Patient Creation where all required fields are valid except firstname
@@ -32,7 +32,7 @@ Scenario: Verify Patient Creation where all required fields are valid except fir
 	And I click on create button
 	Then Patient should not be created and error message "First Name should contain alphabets only." should show on screen
 
-@TC_Zeus_PB_0003 @NegativeTests
+@TC_Zeus_PB_0003 @NegativeTests  @test
 Scenario: Verify Patient Creation where all required fields are valid except lastname
 	Given I open patient browser page
 	And Patient is not created already with the set of data provided
@@ -56,7 +56,7 @@ Scenario: Verify Patient Creation where all required fields are valid except ema
 	And I click on create button
 	Then Patient should not be created and error message "Email address is invalid" should show on screen
 
-@TC_Zeus_PB_0005 @NegativeTests
+@TC_Zeus_PB_0005 @NegativeTests  @test
 Scenario: Verify Patient Creation where all required fields are valid except DOB
 	Given I open patient browser page
 	And Patient is not created already with the set of data provided
@@ -80,7 +80,7 @@ Scenario: Verify Patient Creation where all required fields are valid except Add
 	And I click on create button
 	Then Patient should not be created and error message "Address1 length cannot exceed 350 characters." should show on screen
 
-@TC_Zeus_PB_0007 @NegativeTests
+@TC_Zeus_PB_0007 @NegativeTests  @test
 Scenario: Verify Patient Creation where all required fields are valid except Phone Number
 	Given I open patient browser page
 	And Patient is not created already with the set of data provided
@@ -90,7 +90,7 @@ Scenario: Verify Patient Creation where all required fields are valid except Pho
 	    #All required fields are: Valid First Name, Valid Last Name, Valid Email, 
 	    #Valid Date of Birth, Invalid Phone Number, Valid Gender, Valid Address Line 1, Valid Zip Code
 	And I click on create button
-	Then Patient should not be created and validation message "Phone number should contain exact 10 digits" should show on screen
+	Then Patient should not be created and error message "Phone number should contain exact 10 digits" should show on screen
 
 @TC_Zeus_PB_0008 @NegativeTests
 Scenario: Verify Patient Creation where all required fields are valid except phone number is all registered with another patient
@@ -100,7 +100,7 @@ Scenario: Verify Patient Creation where all required fields are valid except pho
 	When I click on create new patient button
 	And I provide all required fields with valid data for patient creation
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added" should show on screen
+	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
 	     #Create another patient with the same phone number that was created in the above steps
 	When I click on create new patient button
 	And I provide all the required fields with valid data except a phone number that is already registered with another patient
@@ -129,7 +129,7 @@ Scenario: Verify Patient Creation when the patient is already registered
 	When I click on create new patient button
 	And I provide all required fields with valid data for patient creation
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added" should show on screen
+	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
 	#Create another patient with the set of data that was created in the above steps
 	#Using First Name, Last Name, Phone Number, Date Of Birth and Email
 	When I click on create new patient button
@@ -137,7 +137,7 @@ Scenario: Verify Patient Creation when the patient is already registered
 	#All required fields are: Valid First Name, Valid Last Name, Valid Email, 
 	#Valid Date of Birth, Valid Phone Number, Valid Gender, Valid Address Line 1, Valid Zip Code
 	And I click on create button
-	Then Patient should not be created and validation message "Patient with same details (First Name, DOB, and Phone No.) already exist" should show on screen
+	Then Patient should not be created and error message "Patient with same details (First Name, DOB, and Phone No.) already exist" should show on screen
 
 @TC_Zeus_PB_0011 @PositiveTests
 Scenario: Verify Patient Creation where First Name, Middle Name and Last name have whitespaces at the begining
@@ -149,9 +149,9 @@ Scenario: Verify Patient Creation where First Name, Middle Name and Last name ha
 	#All required fields are: whitespaces_First Name, whitespaces_Middle Name, whitespaces_Last Name, Valid Email, 
 	#Valid Date of Birth, Valid Phone Number, Valid Gender, Valid Address Line 1, Valid Zip Code
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added" should show on screen
+	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
 
-@TC_Zeus_PB_0012 @PositiveTests
+@TC_Zeus_PB_0012 @PositiveTests @test
 Scenario: Search patient by first name and last name
 	Given I open patient browser page
 	And Patient is not created already with the set of data provided
@@ -161,7 +161,7 @@ Scenario: Search patient by first name and last name
 	    #All required fields are: Valid First Name, Valid Last Name, Valid Email, 
 	    #Valid Date of Birth, Valid Phone Number, Valid Gender, Valid Address Line 1, Valid Zip Code
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added" should show on screen
+	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
 	When I search for the newly created patient by first name and last name
 	Then The patient data with first name and last name is displayed on screen
 
@@ -201,7 +201,7 @@ Scenario: Check recently added link
 	    #All required fields are: Valid First Name, Valid Last Name, Valid Email, 
 	    #Valid Date of Birth, Valid Phone Number, Valid Gender, Valid Address Line 1, Valid Zip Code
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added" should show on screen
+	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
 	And Recently added link should be visible
 	When I click the recently added link
 	Then Patient profile data is displayed on screen
