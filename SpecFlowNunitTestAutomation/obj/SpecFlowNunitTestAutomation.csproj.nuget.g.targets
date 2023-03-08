@@ -8,5 +8,6 @@
     <Import Project="$(NuGetPackageRoot)specflow.nunit\3.9.74\build\SpecFlow.NUnit.targets" Condition="Exists('$(NuGetPackageRoot)specflow.nunit\3.9.74\build\SpecFlow.NUnit.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.codecoverage\17.4.1\build\netstandard2.0\Microsoft.CodeCoverage.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.codecoverage\17.4.1\build\netstandard2.0\Microsoft.CodeCoverage.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.net.test.sdk\17.4.1\build\netcoreapp3.1\Microsoft.NET.Test.Sdk.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.net.test.sdk\17.4.1\build\netcoreapp3.1\Microsoft.NET.Test.Sdk.targets')" />
+    <Import Project="$(NuGetPackageRoot)autoitx.dotnet\3.3.14.5\build\AutoItX.Dotnet.targets" Condition="Exists('$(NuGetPackageRoot)autoitx.dotnet\3.3.14.5\build\AutoItX.Dotnet.targets')" />
   </ImportGroup>
 </Project>

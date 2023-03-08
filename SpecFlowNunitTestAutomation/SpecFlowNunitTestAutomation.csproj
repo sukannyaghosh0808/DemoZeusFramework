@@ -7,6 +7,7 @@
 		<RunSettingsFilePath>$(MSBuildProjectDirectory)\test.runsettings</RunSettingsFilePath>
 		<UseWindowsForms>true</UseWindowsForms>
 		<AssemblyName></AssemblyName>
+		<PlatformTarget>x86</PlatformTarget>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -23,8 +24,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <COMReference Include="AutoItX3Lib">
+	    <VersionMinor>0</VersionMinor>
+	    <VersionMajor>1</VersionMajor>
+	    <Guid>f8937e53-d444-4e71-9275-35b64210cc3b</Guid>
+	    <Lcid>0</Lcid>
+	    <WrapperTool>tlbimp</WrapperTool>
+	    <Isolated>false</Isolated>
+	    <EmbedInteropTypes>true</EmbedInteropTypes>
+	  </COMReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoItX.Dotnet" Version="3.3.14.5" />
 		<PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
 		<PackageReference Include="ExtentReports" Version="4.1.0" />
+		<PackageReference Include="InputSimulator" Version="1.0.4" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
 		<PackageReference Include="NPOI" Version="2.6.0" />
 		<PackageReference Include="Selenium.Support" Version="4.4.0" />
@@ -55,6 +70,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Properties\" />
 	  <Folder Include="TestData\AppDownloads\" />
 	  <Folder Include="TestData\ExtractedFiles\" />
 	</ItemGroup>

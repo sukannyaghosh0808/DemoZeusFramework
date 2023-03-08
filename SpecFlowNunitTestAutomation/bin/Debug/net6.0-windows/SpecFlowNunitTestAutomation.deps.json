@@ -8,9 +8,11 @@
     ".NETCoreApp,Version=v6.0": {
       "SpecFlowNunitTestAutomation/1.0.0": {
         "dependencies": {
+          "AutoItX.Dotnet": "3.3.14.5",
           "DotNetSeleniumExtras.WaitHelpers": "3.11.0",
           "ExtentReports": "4.1.0",
           "FluentAssertions": "6.9.0",
+          "InputSimulator": "1.0.4",
           "Microsoft.NET.Test.Sdk": "17.4.1",
           "NPOI": "2.6.0",
           "NUnit3TestAdapter": "4.3.1",
@@ -39,6 +41,7 @@
           }
         }
       },
+      "AutoItX.Dotnet/3.3.14.5": {},
       "BoDi/1.5.0": {
         "runtime": {
           "lib/netstandard2.0/BoDi.dll": {
@@ -109,6 +112,14 @@
           "lib/netstandard2.0/Gherkin.dll": {
             "assemblyVersion": "19.0.3.0",
             "fileVersion": "19.0.3.0"
+          }
+        }
+      },
+      "InputSimulator/1.0.4": {
+        "runtime": {
+          "lib/net20/WindowsInput.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
           }
         }
       },
@@ -2530,6 +2541,13 @@
       "path": "anglesharp/0.17.1",
       "hashPath": "anglesharp.0.17.1.nupkg.sha512"
     },
+    "AutoItX.Dotnet/3.3.14.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pobGb0PovHfJLH6tC2wsmafuZSI3u9ThqyHBebipVm9I/eDjzXZ6E6O84vUpE48lwTxPmtPm2HN/1tq0aLbM0Q==",
+      "path": "autoitx.dotnet/3.3.14.5",
+      "hashPath": "autoitx.dotnet.3.3.14.5.nupkg.sha512"
+    },
     "BoDi/1.5.0": {
       "type": "package",
       "serviceable": true,
@@ -2578,6 +2596,13 @@
       "sha512": "sha512-kq9feqMojMj9aABrHb/ABEPaH2Y4dSclseSahAru6qxCeqVQNLLTgw/6vZMauzI1yBUL2fz03ub5yEd5btLfvg==",
       "path": "gherkin/19.0.3",
       "hashPath": "gherkin.19.0.3.nupkg.sha512"
+    },
+    "InputSimulator/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D0LvRCPQMX6/FJHBjng+RO+wRDuHTJrfo7IAc7rmkPvRqchdVGJWg3y70peOtDy3OLNK+HSOwVkH4GiuLnkKgA==",
+      "path": "inputsimulator/1.0.4",
+      "hashPath": "inputsimulator.1.0.4.nupkg.sha512"
     },
     "MathNet.Numerics.Signed/4.15.0": {
       "type": "package",

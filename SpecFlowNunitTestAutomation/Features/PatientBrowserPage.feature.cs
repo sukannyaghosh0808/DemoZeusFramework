@@ -734,19 +734,19 @@ this.FeatureBackground();
 #line 170
  testRunner.Given("I open patient browser page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                             "EmailID"});
-                table2.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "xarroliga@nowoptics.com"});
 #line 171
- testRunner.When("I search for a patient", ((string)(null)), table2, "When ");
+ testRunner.When("I search for a patient", ((string)(null)), table7, "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                             "EmailID"});
-                table3.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "xarroliga@nowoptics.com"});
 #line 174
- testRunner.Then("The patient with following data is displayed on screen", ((string)(null)), table3, "Then ");
+ testRunner.Then("The patient with following data is displayed on screen", ((string)(null)), table8, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -779,19 +779,19 @@ this.FeatureBackground();
 #line 180
  testRunner.Given("I open patient browser page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                             "DOB"});
-                table4.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "09/30/1996"});
 #line 181
- testRunner.When("I search for a patient", ((string)(null)), table4, "When ");
+ testRunner.When("I search for a patient", ((string)(null)), table9, "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                             "DOB"});
-                table5.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "09/30/1996"});
 #line 184
- testRunner.Then("The patient with following data is displayed on screen", ((string)(null)), table5, "Then ");
+ testRunner.Then("The patient with following data is displayed on screen", ((string)(null)), table10, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

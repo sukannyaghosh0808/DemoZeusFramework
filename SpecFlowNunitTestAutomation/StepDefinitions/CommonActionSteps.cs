@@ -16,6 +16,7 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
     {
         LoginPage loginPage = new LoginPage();
         DashboardPage dashboardPage = new DashboardPage();
+        PatientBrowserPage patientBrowserPage= new PatientBrowserPage();    
 
         //Common steps for Login page
         [Given(@"Launch the Zeus application")]
@@ -71,6 +72,26 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
             {
                 Assert.Fail("Could not select proper store ");
             }
+        }
+
+        [Given(@"I search for the ""([^""]*)"" patient created")]
+        public void GivenISearchForThePatientCreated(string first)
+        {
+            patientBrowserPage.EnterDetailsToSearchExistingPatient(first, string.Empty, string.Empty, string.Empty, string.Empty);
+            patientBrowserPage.SearchPatient();
+        }
+
+        [Given(@"I click the view file link for the patient created")]
+        public void GivenIClickTheViewFileLinkForThePatientCreated()
+        {
+            patientBrowserPage.ViewFileForFirstPatient();
+        }
+
+
+        [Given(@"I go to the paper capture tab")]
+        public void GivenIGoToThePaperCaptureTab()
+        {
+            patientBrowserPage.GoToPatientBrowserTab();
         }
 
     }
