@@ -70,7 +70,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Properties\" />
 	  <Folder Include="TestData\AppDownloads\" />
 	  <Folder Include="TestData\ExtractedFiles\" />
 	</ItemGroup>

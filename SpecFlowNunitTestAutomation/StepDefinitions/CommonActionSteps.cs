@@ -75,9 +75,19 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         }
 
         [Given(@"I search for the ""([^""]*)"" patient created")]
-        public void GivenISearchForThePatientCreated(string first)
+        public void GivenISearchForThePatientCreated(string number)
         {
-            patientBrowserPage.EnterDetailsToSearchExistingPatient(first, string.Empty, string.Empty, string.Empty, string.Empty);
+            //patientBrowserPage.EnterDetailsToSearchExistingPatient(first, string.Empty, string.Empty, string.Empty, string.Empty);
+            //patientBrowserPage.SearchPatient();
+            //PatientCreateUtil util = new PatientCreateUtil();
+           // util.CreateTwoPatient(first);
+           if(number == "first")
+            {
+                string FName = PatientCreateUtil.FirstName;
+                string LName = PatientCreateUtil.LastName;
+                patientBrowserPage.EnterDetailsToSearchExistingPatient(FName, LName, string.Empty, string.Empty, string.Empty);
+
+            }
             patientBrowserPage.SearchPatient();
         }
 

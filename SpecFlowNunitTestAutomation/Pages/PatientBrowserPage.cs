@@ -32,7 +32,8 @@ namespace SpecFlowNunitTestAutomation.Pages
         private static By PhoneNumber_createPatient = By.Id("Phones_number");
         private static By ContinueWithoutAddress = By.Id("SkipAddressVerification");
         private static By ContinueWithoutEmail = By.XPath("//*[@id='ckbSkipEmail']");
-        private static By ToastMessage = By.XPath("//*[@id='toast-container']/div/div");
+        //private static By ToastMessage = By.XPath("//*[@id='toast-container']/div/div");
+        private static By ToastMessage = By.XPath("//*[@class='toast-message']");
         private static By SmsNotificationCheckBox = By.XPath("//*[@id='IsAllowedToGetSmsNotification']");
         private static By CreateBtn = By.XPath("//*[@class='btn btn-primary pull-right'][text()='Create']");
         private static By PhoneNumberConfMessage = By.XPath("//*[@class='jconfirm-content']");
@@ -157,6 +158,7 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public string GetToastMessage()
         {
+            WaitUntillElementToBeVisible(ToastMessage, 15);
             return GetTextValue(ToastMessage, "Toast Message");
             
         }

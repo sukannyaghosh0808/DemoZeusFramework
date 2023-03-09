@@ -136,8 +136,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
- testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
-                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
+                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -473,8 +473,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 103
- testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
-                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
+                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 105
  testRunner.When("I click on create new patient button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -581,8 +581,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 132
- testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
-                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
+                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 135
  testRunner.When("I click on create new patient button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -645,8 +645,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 152
- testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
-                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
+                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -694,8 +694,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 164
- testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
-                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
+                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 165
  testRunner.When("I search for the newly created patient by first name and last name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -874,8 +874,8 @@ this.FeatureBackground();
  testRunner.And("I click on create button and skip address verification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 204
- testRunner.Then("Patient should be created and successful message \"Patient added in Zeus and queue" +
-                        "d to create in MRS.\" should show on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Patient should be created and successful message \"Patient added\" should show on s" +
+                        "creen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 205
  testRunner.And("Recently added link should be visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

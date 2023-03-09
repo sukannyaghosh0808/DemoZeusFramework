@@ -69,7 +69,7 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         {
             //The patient is creating automatically even without checking the skip address verification checkbox.
             patientBrowserPage.ClickCreate();
-            Thread.Sleep(4000);
+            //Thread.Sleep(4000);
         }
 
         [Then(@"Patient should be created and successful message ""([^""]*)"" should show on screen")]
