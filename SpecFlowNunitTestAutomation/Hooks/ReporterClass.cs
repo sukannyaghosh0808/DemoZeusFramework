@@ -2,10 +2,15 @@
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
+using Microsoft.AspNetCore.Http;
+using NPOI.SS.Formula.Functions;
 using NUnit.Framework;
+using SpecFlowNunitTestAutomation.Pages;
 using SpecFlowNunitTestAutomation.Utils;
+using System.Reflection.Emit;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.UnitTestProvider;
+using And = AventStack.ExtentReports.Gherkin.Model.And;
 
 //[assembly: Parallelizable(ParallelScope.Fixtures)]
 
@@ -42,7 +47,13 @@ namespace SpecFlowNunitTestAutomation.Hooks
         {
             return stepThreadLocal;
         }
-
+        [OneTimeSetUp]
+        [BeforeTestRun(Order = 2)]
+        public static void BeforeTestRunCreatePatient()
+        {
+            PatientCreateUtil.CreateFirstPatient();
+            cmnActions.CloseBrowser();
+        }
         [BeforeTestRun(Order = 1)]
         public static void CreateExtentHtmlReporter()
         {
@@ -91,6 +102,7 @@ namespace SpecFlowNunitTestAutomation.Hooks
             extentReports.AddSystemInfo("Environment", environment.ToUpper());
         }
 
+        
         [BeforeFeature]
         public static void CreateFeature(FeatureContext featureContext)
         {

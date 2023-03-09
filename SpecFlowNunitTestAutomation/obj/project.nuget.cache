@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "K5Za4yWTu4Zuo6TUiPTWmTQRaF4qMpPr0QeMRSXsy9/rH37jTToGMiqepfWatQa6ZiRZBY68ELheLoKbXDilqQ==",
+  "dgSpecHash": "+8n8V0zKCsU2dY9ny8hG2s9kYBPnSMcNy5V6bX1QegMX1i4NQRlav4ADl68RO/VCrAeLGXCY/rOVo5ZeeXWpVQ==",
   "success": true,
   "projectFilePath": "D:\\Zeus\\specflowuiautomationframework.gi\\SpecFlowNunitTestAutomation\\SpecFlowNunitTestAutomation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\anglesharp\\0.17.1\\anglesharp.0.17.1.nupkg.sha512",
+    "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\autoitx.dotnet\\3.3.14.5\\autoitx.dotnet.3.3.14.5.nupkg.sha512",
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\bodi\\1.5.0\\bodi.1.5.0.nupkg.sha512",
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\dnsclient\\1.2.0\\dnsclient.1.2.0.nupkg.sha512",
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
@@ -12,6 +13,7 @@
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\extentreports\\4.1.0\\extentreports.4.1.0.nupkg.sha512",
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\fluentassertions\\6.9.0\\fluentassertions.6.9.0.nupkg.sha512",
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\gherkin\\19.0.3\\gherkin.19.0.3.nupkg.sha512",
+    "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\inputsimulator\\1.0.4\\inputsimulator.1.0.4.nupkg.sha512",
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\mathnet.numerics.signed\\4.15.0\\mathnet.numerics.signed.4.15.0.nupkg.sha512",
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -226,5 +228,16 @@
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Sukannya Ghosh\\.nuget\\packages\\webdrivermanager\\2.16.2\\webdrivermanager.2.16.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'InputSimulator 1.0.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "InputSimulator",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

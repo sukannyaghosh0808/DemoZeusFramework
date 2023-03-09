@@ -45,6 +45,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "AutoItX.Dotnet": {
+              "target": "Package",
+              "version": "[3.3.14.5, )"
+            },
             "DotNetSeleniumExtras.WaitHelpers": {
               "target": "Package",
               "version": "[3.11.0, )"
@@ -56,6 +60,10 @@
             "FluentAssertions": {
               "target": "Package",
               "version": "[6.9.0, )"
+            },
+            "InputSimulator": {
+              "target": "Package",
+              "version": "[1.0.4, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",

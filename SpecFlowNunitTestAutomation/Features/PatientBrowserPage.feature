@@ -18,7 +18,7 @@ Scenario: Verify Patient Creation where all required fields are valid
 	    #All required fields are: Valid First Name, Valid Last Name, Valid Email, 
 	    #Valid Date of Birth, Valid Phone Number, Valid Gender, Valid Address Line 1, Valid Zip Code
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
+	Then Patient should be created and successful message "Patient added" should show on screen
 
 @TC_Zeus_PB_0002 @NegativeTests
 Scenario: Verify Patient Creation where all required fields are valid except firstname
@@ -100,7 +100,7 @@ Scenario: Verify Patient Creation where all required fields are valid except pho
 	When I click on create new patient button
 	And I provide all required fields with valid data for patient creation
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
+	Then Patient should be created and successful message "Patient added" should show on screen
 	     #Create another patient with the same phone number that was created in the above steps
 	When I click on create new patient button
 	And I provide all the required fields with valid data except a phone number that is already registered with another patient
@@ -129,7 +129,7 @@ Scenario: Verify Patient Creation when the patient is already registered
 	When I click on create new patient button
 	And I provide all required fields with valid data for patient creation
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
+	Then Patient should be created and successful message "Patient added" should show on screen
 	#Create another patient with the set of data that was created in the above steps
 	#Using First Name, Last Name, Phone Number, Date Of Birth and Email
 	When I click on create new patient button
@@ -149,7 +149,7 @@ Scenario: Verify Patient Creation where First Name, Middle Name and Last name ha
 	#All required fields are: whitespaces_First Name, whitespaces_Middle Name, whitespaces_Last Name, Valid Email, 
 	#Valid Date of Birth, Valid Phone Number, Valid Gender, Valid Address Line 1, Valid Zip Code
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
+	Then Patient should be created and successful message "Patient added" should show on screen
 
 @TC_Zeus_PB_0012 @PositiveTests @test
 Scenario: Search patient by first name and last name
@@ -161,7 +161,7 @@ Scenario: Search patient by first name and last name
 	    #All required fields are: Valid First Name, Valid Last Name, Valid Email, 
 	    #Valid Date of Birth, Valid Phone Number, Valid Gender, Valid Address Line 1, Valid Zip Code
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
+	Then Patient should be created and successful message "Patient added" should show on screen
 	When I search for the newly created patient by first name and last name
 	Then The patient data with first name and last name is displayed on screen
 
@@ -201,7 +201,7 @@ Scenario: Check recently added link
 	    #All required fields are: Valid First Name, Valid Last Name, Valid Email, 
 	    #Valid Date of Birth, Valid Phone Number, Valid Gender, Valid Address Line 1, Valid Zip Code
 	And I click on create button and skip address verification
-	Then Patient should be created and successful message "Patient added in Zeus and queued to create in MRS." should show on screen
+	Then Patient should be created and successful message "Patient added" should show on screen
 	And Recently added link should be visible
 	When I click the recently added link
 	Then Patient profile data is displayed on screen
