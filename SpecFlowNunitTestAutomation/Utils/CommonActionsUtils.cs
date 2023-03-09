@@ -5,7 +5,10 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SpecFlowNunitTestAutomation.Hooks;
+using WindowsInput;
+using WindowsInput.Native;
 using Keys = OpenQA.Selenium.Keys;
+using AutoItX3Lib;
 
 namespace SpecFlowNunitTestAutomation.Utils
 {
@@ -777,5 +780,20 @@ namespace SpecFlowNunitTestAutomation.Utils
             return options;
         }
 
+        public void UploadFileUsingRobotClass(string path)
+        {
+            // InputSimulator sim = new InputSimulator();
+            //  sim.Keyboard.TextEntry(path);
+            //  sim.Keyboard.KeyPress(VirtualKeyCode.RETURN);
+            SendKeys.SendWait(path);
+            SendKeys.SendWait("{Enter}");
+        }
+        public void UploadFileUsingAutoIT(string path)
+        {
+            AutoItX3 autoit = new AutoItX3();
+            autoit.WinActivate("Open"); // Window name to select a file 
+            autoit.Send(path); // file path 
+            autoit.Send("{ENTER}");
+        }
     }
 }

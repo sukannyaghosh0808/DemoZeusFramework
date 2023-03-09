@@ -590,7 +590,6 @@ D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\n
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\LivingDoc.Dtos.dll
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\LivingDoc.SpecFlowPlugin.dll
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
-D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\testhost.exe
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\NUnit3.TestAdapter.dll
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\NUnit3.TestAdapter.pdb
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\nunit.engine.dll
@@ -787,3 +786,10 @@ D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\n
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.pdb
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.genruntimeconfig.cache
 D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\ref\SpecFlowNunitTestAutomation.dll
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\WindowsInput.dll
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\Interop.AutoItX3Lib.dll
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\obj\Debug\net6.0-windows\SpecFlowNunitTestAutomation.csproj.ResolveComReference.cache
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\AutoItX3.dll
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\AutoItX3_x64.dll
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\testhost.x86.exe
+D:\Zeus\specflowuiautomationframework.gi\SpecFlowNunitTestAutomation\bin\Debug\net6.0-windows\testhost.x86.dll
