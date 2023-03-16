@@ -17,7 +17,11 @@ namespace SpecFlowNunitTestAutomation.Pages
         private static By NavigationBarStoreName= By.XPath("//*[@id='store-quick-selector-content']/span[@class='currentValue']");
         private static By PatientBrowser = By.XPath("//*[@class='fa fa-user']//following-sibling::span[text()='Patient Browser']");
         private static By DashboardpageIcon = By.XPath("//*[text()='Dashboard']");
-
+        private static By Scheduler = By.XPath("//*[@class='sub-menu']/child::a/child::i/following-sibling::span[text()='Scheduler']");       
+        private static By POSMenu = By.XPath("//*[text()='POS']");
+        
+        
+        
         public void ClickOnDistributionCenterChangeButton()
         {
             ClickElement(StoreSelector, "Store selector");
@@ -27,6 +31,7 @@ namespace SpecFlowNunitTestAutomation.Pages
         {
             WaitForElementToBeClickable(StoreSelectorDownArrow,5);
             ClickElement(StoreSelectorDownArrow,"Down Arrow");
+            Thread.Sleep(1000);
             ClearText(storeSearchBar, " ");
             SendValue(storeSearchBar, " ", store);
             Thread.Sleep(3000);
@@ -53,5 +58,15 @@ namespace SpecFlowNunitTestAutomation.Pages
             else
                 return false;
         }
+
+        public void GoToSchedulerMenu()
+        {
+            ClickElement(Scheduler, "scheduler");
+        }
+        public void GoToPOSMenu()
+        {
+            ClickElement(POSMenu, "POS");
+        }
+
     }
 }

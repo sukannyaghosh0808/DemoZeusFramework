@@ -16,7 +16,8 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
     {
         LoginPage loginPage = new LoginPage();
         DashboardPage dashboardPage = new DashboardPage();
-        PatientBrowserPage patientBrowserPage= new PatientBrowserPage();    
+        PatientBrowserPage patientBrowserPage= new PatientBrowserPage();   
+        SchedulerPOSPage pospage = new SchedulerPOSPage();
 
         //Common steps for Login page
         [Given(@"Launch the Zeus application")]
@@ -83,8 +84,8 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
            // util.CreateTwoPatient(first);
            if(number == "first")
             {
-                string FName = PatientCreateUtil.FirstName;
-                string LName = PatientCreateUtil.LastName;
+                string FName = PatientCreateUtil.first_FirstName;
+                string LName = PatientCreateUtil.first_LastName;
                 patientBrowserPage.EnterDetailsToSearchExistingPatient(FName, LName, string.Empty, string.Empty, string.Empty);
 
             }
@@ -103,6 +104,49 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         {
             patientBrowserPage.GoToPatientBrowserTab();
         }
+
+        [When(@"I select a store named ""([^""]*)""")]
+        public void WhenISelectAStoreNamed(string storename)
+        {
+            dashboardPage.SelectAnyStore(storename);
+        }
+
+
+        [Then(@"The store should change to ""([^""]*)""")]
+        public void ThenTheStoreShouldChangeTo(string storename)
+        {
+            if (storename == dashboardPage.GetCurrentStoreName())
+            {
+                ReporterClass.AddStepLog("Selected store : " + store);
+            }
+            else
+            {
+                Assert.Fail("Could not select proper store ");
+            }
+        }
+
+        [Given(@"I go to the Scheduler menu")]
+        public void GivenIGoToTheSchedulerMenu()
+        {
+            dashboardPage.GoToSchedulerMenu();
+        }
+        [Given(@"I go to the POS menu")]
+        public void GivenIGoToThePOSMenu()
+        {
+            dashboardPage.GoToPOSMenu();
+            Thread.Sleep(3000);
+        }
+
+        [Given(@"Delete any existing appointments")]
+        public void GivenDeleteAnyExistingAppointments()
+        {
+            pospage.refresh();
+            pospage.deleteAllAppointments();            
+            Thread.Sleep(3000);
+            pospage.DeleteContactLensExam();
+            //Console.WriteLine(",,,,,,,,,"+pospage.eyelens());
+        }
+
 
     }
 }

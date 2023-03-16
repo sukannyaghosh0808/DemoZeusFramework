@@ -178,6 +178,7 @@ namespace SpecFlowNunitTestAutomation.Pages
             SendValue(DOBonSearchPage, "DOB", _dateOfBirth);
             SendValue(EmailOnSearchPage, "Email", _emailID); */
 
+
             ClearAndSendValue(firstnameOnSearchPage, "FirstName", _firstName);
             ClearAndSendValue(lastnameOnSearchPage, "Last Name", _lastName);
             ClearAndSendValue(Phone, "Phone", _phoneNumber);
@@ -377,6 +378,11 @@ namespace SpecFlowNunitTestAutomation.Pages
         public void PaperCaptureExistingFileSelectButton()
         {
             ClickElement(PaperCaptureSelectButton, "select paper capture button");
+        }
+
+        public void DoubleClickOnSearchResult()
+        {
+            DoubleClick(SearchResultFirstName, "first name");
         }
     }
 

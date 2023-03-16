@@ -9,6 +9,9 @@ using WindowsInput;
 using WindowsInput.Native;
 using Keys = OpenQA.Selenium.Keys;
 using AutoItX3Lib;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using System.Collections.Generic;
+using static ICSharpCode.SharpZipLib.Zip.ExtendedUnixData;
 
 namespace SpecFlowNunitTestAutomation.Utils
 {
@@ -136,6 +139,9 @@ namespace SpecFlowNunitTestAutomation.Utils
                 Assert.Fail("Unable to click on: " + ElementName + ". Failed logs: " + ex.Message);
             }
         }
+
+
+
 
         public IWebElement WaitForElementToBeVisible(By Element, int timeoutInSeconds)
         {
@@ -394,7 +400,7 @@ namespace SpecFlowNunitTestAutomation.Utils
             {
                 IAlert alert = driver.SwitchTo().Alert();
                 alert.Accept();
-               
+
             }
             catch (Exception ex)
             {
@@ -402,7 +408,7 @@ namespace SpecFlowNunitTestAutomation.Utils
             }
         }
 
-        
+
         public void ScrollToElement(By Element, string ElementName)
         {
             WaitUntillElementToExist(Element, 10);
@@ -486,12 +492,12 @@ namespace SpecFlowNunitTestAutomation.Utils
         /// <param name="driver">The driver.</param>
         /// <param name="by">The by.</param>
         /// <returns></returns>
+        /// 
+
         public ReadOnlyCollection<IWebElement> FindElements(By Element)
         {
             ReadOnlyCollection<IWebElement> e = null;
             e = driver.FindElements(Element);
-
-            
 
             return e;
         }
@@ -795,5 +801,169 @@ namespace SpecFlowNunitTestAutomation.Utils
             autoit.Send(path); // file path 
             autoit.Send("{ENTER}");
         }
+
+        public bool GetElementsVisibilityStatus(By ele1, By close, By duration, By patiettab)
+        {
+            //getting all webelements with no aria selected
+            IList<IWebElement> elements = driver.FindElements(ele1);
+           
+
+            bool flag = false;
+            for (int i = 0; i < elements.Count; i++)
+            {
+                string s = ((elements[i].GetAttribute("aria-selected")));
+                if (s == "false")
+                {
+                    Thread.Sleep(3000);
+                    elements[i].Click();
+                    Thread.Sleep(3000);
+                    new Actions(driver).DoubleClick(elements[i]).Build().Perform();
+                    Thread.Sleep(4000);
+                    if (driver.FindElement(duration).GetAttribute("value") != "0")
+                    {
+                        driver.FindElement(close).Click();
+                        continue;
+                    }
+                    else if (IsElementDisplayed(patiettab) == true)
+                    {
+                        flag = true;
+                        driver.FindElement(close).Click();
+                        break;
+                    }
+                }
+            }
+            return flag;
+        }
+
+        public void DoubleClickOnVisibleElement(By ele1, By close, By duration)
+        {
+            //getting all webelements with no aria selected
+            IList<IWebElement> elements = driver.FindElements(ele1);
+
+            for (int i = 0; i < elements.Count; i++)
+            {
+                string s = ((elements[i].GetAttribute("aria-selected")));
+                if (s == "false")
+                {
+                    //elements[i].Click();
+                    new Actions(driver).DoubleClick(elements[i]).Build().Perform();
+                    Thread.Sleep(2000);
+                    if (driver.FindElement(duration).GetAttribute("value") != "0")
+                    {
+                        driver.FindElement(close).Click();
+                        Thread.Sleep(1000);
+                        // continue;
+                    }
+                    else
+                        break;
+
+                }
+            }
+        }
+
+        public void RightClickOnVisibleElement(By ele1, By close, By duration, By patiettab)
+        {
+            //getting all webelements with no aria selected
+            IList<IWebElement> elements = driver.FindElements(ele1);
+
+            for (int i = 0; i < elements.Count; i++)
+            {
+                string s = ((elements[i].GetAttribute("aria-selected")));
+                if (s == "false")
+                {
+                    new Actions(driver).DoubleClick(elements[i]).Build().Perform();
+                    Thread.Sleep(2000);
+                    if (driver.FindElement(duration).GetAttribute("value") != "0")
+                    {
+                        driver.FindElement(close).Click();
+                        Thread.Sleep(1000);
+                        continue;
+                    }
+                    else if (IsElementDisplayed(patiettab) == true)
+                    {
+                        driver.FindElement(close).Click();
+                        elements[i].Click();
+                        new Actions(driver).ContextClick(elements[i]).Build().Perform();
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void MouseHoverOnElement(By ele1)
+        {
+            new Actions(driver).MoveToElement(driver.FindElement(ele1)).Build().Perform();
+        }
+
+        public void clickWebElement(IWebElement ele)
+        {
+            ele.Click();
+        }
+        public void RightclickWebElement(IWebElement ele)
+        {
+            new Actions(driver).ContextClick(ele).Build().Perform();
+        }
+        public void DoubleClickOnWebElement(IWebElement ele)
+        {
+            new Actions(driver).DoubleClick(ele).Build().Perform();
+        }
+
+
+
+        public void DeleteExistingElement(By ele2, By ChangeStatusOption, By ChangeStatusCancelled)
+        {
+            IList<IWebElement> all = driver.FindElements(ele2);
+            for (int i = 0; i <= all.Count; i++)//2
+            {
+                Thread.Sleep(5000);
+                IWebElement element = driver.FindElement(ele2);//first
+                element.Click();
+                Thread.Sleep(3000);
+                new Actions(driver).ContextClick(element).Build().Perform();
+                Thread.Sleep(3000);
+                driver.FindElement(ChangeStatusOption).Click();
+                Thread.Sleep(2000);
+                driver.FindElement(ChangeStatusCancelled).Click();
+            }
+
+        }
+
+
+
+
+        /// <summary>
+        /// DRAG AND DROP FOR SCHEDULER POS PAGE
+        /// </summary>
+
+        public void DragAndDropOnNextSlot(By ele1, By close, By duration, By patiettab, By source)
+        {
+            //getting all webelements with no aria selected
+            IList<IWebElement> elements = driver.FindElements(ele1);
+            for (int i = 0; i < elements.Count; i++)
+            {
+                string s = ((elements[i].GetAttribute("aria-selected")));
+                if (s == "false")
+                {
+                    Thread.Sleep(3000);
+                    elements[i].Click();
+                    Thread.Sleep(3000);
+                    new Actions(driver).DoubleClick(elements[i]).Build().Perform();
+                    Thread.Sleep(4000);
+                    if (driver.FindElement(duration).GetAttribute("value") != "0")
+                    {
+                        driver.FindElement(close).Click();
+                        continue;
+                    }
+                    else if (IsElementDisplayed(patiettab) == true)
+                    {
+                        driver.FindElement(close).Click();
+                        new Actions(driver).DragAndDrop(driver.FindElement(source), elements[i]).Build().Perform();
+                        break;
+                    }
+                }
+            }
+        }
+
+
     }
-}
+    } 

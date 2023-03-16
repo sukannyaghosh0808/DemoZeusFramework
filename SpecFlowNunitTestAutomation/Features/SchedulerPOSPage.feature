@@ -5,8 +5,8 @@ Background:
 	Given Launch the Zeus application
 	And I login to the Zeus application with valid credentials
 	When I click on distribution center change button
-	And I select a store named "0001 | Stanton Optical - Mishawaka"
-	Then The store should change to "0001 | Stanton Optical - Mishawaka"
+	And I select a store named "5001 | Doctor - Mishawaka"
+	Then The store should change to "5001 | Doctor - Mishawaka"
 	Given I go to the Scheduler menu
 	And I go to the POS menu
 	And Delete any existing appointments
@@ -26,8 +26,8 @@ Scenario: Create an eye exam appointment on mrs lane in a corporate store
 Scenario: Create an eye exam appointment on mrs lane in a franchise store
 #a franchise store range is between 7000 to 7999
 	When I click on distribution center change button
-	And I select a store named "7003 | My Eyelab - Morrow"
-	Then The store should change to "7003 | My Eyelab - Morrow"
+	And I select a store named "0027 | Stanton Optical - Palm Springs"
+	Then The store should change to "0027 | Stanton Optical - Palm Springs"
 	Given I go to the Scheduler menu
 	And I go to the POS menu
 	And Delete any existing appointments
@@ -43,14 +43,14 @@ Scenario: Create an eye exam appointment on mrs lane in a franchise store
 @TC_Zeus_POS_0003 @PositiveTests
 Scenario: Create double eye exam appointment in the same timeslot on mrs lane in a corporate store
 	When I click on distribution center change button
-	And I select a store named "7003 | My Eyelab - Morrow"
-	Then The store should change to "7003 | My Eyelab - Morrow"
+	And I select a store named "5001 | Doctor - Mishawaka"
+	Then The store should change to "5001 | Doctor - Mishawaka"
 	Given I go to the Scheduler menu
 	And I go to the POS menu
 	And Delete any existing appointments
 	When I click on distribution center change button
-	And I select a store named "0001 | Stanton Optical - Mishawaka"
-	Then The store should change to "0001 | Stanton Optical - Mishawaka"
+	And I select a store named "5001 | Doctor - Mishawaka"
+	Then The store should change to "5001 | Doctor - Mishawaka"
 	Given I go to the Scheduler menu
 	And I go to the POS menu
 	And Delete any existing appointments
