@@ -43,7 +43,6 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
             {                
                 string FName = PatientCreateUtil.first_FirstName;
                 string LName = PatientCreateUtil.first_LastName;
-
                 ReporterClass.AddStepLog("First Name : " + FName);
                 ReporterClass.AddStepLog("First Name : " + LName);
                 patientBrowserPage.EnterDetailsToSearchExistingPatient(FName, LName, string.Empty, string.Empty, string.Empty);
@@ -69,6 +68,7 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
             var data = table.CreateInstance<SchedulerPOSPageTableData>();
             string appointmentType = data.AppointmentType;
             schedulerPage.SelectAppointmentType(appointmentType);
+            ReporterClass.AddStepLog("Selecting Appointment Type as : "+ appointmentType);
         }
 
 
@@ -164,10 +164,8 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
                 ReporterClass.AddStepLog("First Name : " + FName_second);
                 ReporterClass.AddStepLog("First Name : " + LName_second);
                 schedulerPage.RightClickOnExistingAppointment(FName_second, LName_second);
-            }
-            
+            }            
             //Thread.Sleep(3000);
-
         }
 
 
@@ -187,6 +185,7 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         public void ThenAppointmentDetailsUpdatedSuccessMessageShouldAppear()
         {
             Assert.True(schedulerPage.GetToastMessage());
+            ReporterClass.AddStepLog("Appointment details updated success message is appearing...");
         }
 
 
@@ -197,7 +196,6 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
             string FName = PatientCreateUtil.first_FirstName;
             string LName = PatientCreateUtil.first_LastName;
             schedulerPage.dragAndDropElement(FName, LName);
-
         }
 
 
