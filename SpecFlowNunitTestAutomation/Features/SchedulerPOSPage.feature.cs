@@ -165,7 +165,7 @@ this.FeatureBackground();
                     "PositiveTests"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create an eye exam appointment on mrs lane in a franchise store", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 26
+#line 27
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -178,44 +178,44 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 28
+#line 29
  testRunner.When("I click on distribution center change button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 29
+#line 30
  testRunner.And("I select a store named \"0027 | Stanton Optical - Palm Springs\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 30
+#line 31
  testRunner.Then("The store should change to \"0027 | Stanton Optical - Palm Springs\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 31
+#line 32
  testRunner.Given("I go to the Scheduler menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 32
+#line 33
  testRunner.And("I go to the POS menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 33
+#line 34
  testRunner.And("Delete any existing appointments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 34
+#line 35
  testRunner.And("Check for slot availablity in MRS lane \"MRS ( 4 )\" for today\'s date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 35
+#line 36
  testRunner.And("I click on the first available slot", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 36
+#line 37
  testRunner.And("I search and open the \"first\" patient created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                             "AppointmentType"});
                 table12.AddRow(new string[] {
                             "Eye Exam"});
-#line 37
+#line 38
  testRunner.And("I provide the following appointment type for scheduling a slot", ((string)(null)), table12, "And ");
 #line hidden
-#line 40
+#line 41
  testRunner.When("I click on confirmed button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 41
+#line 42
  testRunner.Then("The appointment is created and succesful message with appointment number is shown" +
                         " on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -236,7 +236,7 @@ this.FeatureBackground();
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create double eye exam appointment in the same timeslot on mrs lane in a corporat" +
                     "e store", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 44
+#line 45
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -249,91 +249,91 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 45
- testRunner.When("I click on distribution center change button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
 #line 46
- testRunner.And("I select a store named \"5001 | Doctor - Mishawaka\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click on distribution center change button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 47
- testRunner.Then("The store should change to \"5001 | Doctor - Mishawaka\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 48
- testRunner.Given("I go to the Scheduler menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 49
- testRunner.And("I go to the POS menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 50
- testRunner.And("Delete any existing appointments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 51
- testRunner.When("I click on distribution center change button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 52
  testRunner.And("I select a store named \"5001 | Doctor - Mishawaka\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 53
+#line 48
  testRunner.Then("The store should change to \"5001 | Doctor - Mishawaka\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 54
+#line 49
  testRunner.Given("I go to the Scheduler menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 55
+#line 50
  testRunner.And("I go to the POS menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 56
+#line 51
  testRunner.And("Delete any existing appointments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 52
+ testRunner.When("I click on distribution center change button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 53
+ testRunner.And("I select a store named \"5001 | Doctor - Mishawaka\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 54
+ testRunner.Then("The store should change to \"5001 | Doctor - Mishawaka\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 55
+ testRunner.Given("I go to the Scheduler menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 56
+ testRunner.And("I go to the POS menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 57
- testRunner.And("Check for slot availablity in MRS lane \"MRS ( 4 )\" for today\'s date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Delete any existing appointments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 58
- testRunner.And("I click on the first available slot", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Check for slot availablity in MRS lane \"MRS ( 4 )\" for today\'s date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 59
+ testRunner.And("I click on the first available slot", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 60
  testRunner.And("I search and open the \"first\" patient created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
                             "AppointmentType"});
                 table13.AddRow(new string[] {
                             "Eye Exam"});
-#line 60
+#line 61
  testRunner.And("I provide the following appointment type for scheduling a slot", ((string)(null)), table13, "And ");
 #line hidden
-#line 63
+#line 64
  testRunner.When("I click on confirmed button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 64
+#line 65
  testRunner.Then("The appointment is created and succesful message with appointment number is shown" +
                         " on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 65
+#line 66
  testRunner.When("I right click and select \"Double Book\" on an existing appointment for the \"first\"" +
                         " patient created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 66
+#line 67
  testRunner.Then("A modal window should appear with the message \"Are you sure you want to add anoth" +
                         "er appointment?\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 67
+#line 68
  testRunner.Given("I confirm that I want to add another appointment in the same timeslot for a diffe" +
                         "rent patient", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 68
+#line 69
  testRunner.And("I search and open the \"second\" patient created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
                             "AppointmentType"});
                 table14.AddRow(new string[] {
                             "Eye Exam"});
-#line 69
+#line 70
  testRunner.And("I provide the following appointment type for scheduling a slot", ((string)(null)), table14, "And ");
 #line hidden
-#line 72
+#line 73
  testRunner.When("I click on confirmed button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 73
+#line 74
  testRunner.Then("The appointment is created and succesful message with appointment number is shown" +
                         " on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -354,7 +354,7 @@ this.FeatureBackground();
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cut and paste an eye exam appointment from one timeslot to another on mrs lane in" +
                     " a corporate store", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 76
+#line 78
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -367,41 +367,41 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 77
+#line 79
  testRunner.Given("Check for slot availablity in MRS lane \"MRS ( 4 )\" for today\'s date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 78
+#line 80
  testRunner.And("I click on the first available slot", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 79
+#line 81
  testRunner.And("I search and open the \"first\" patient created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
                             "AppointmentType"});
                 table15.AddRow(new string[] {
                             "Eye Exam"});
-#line 80
+#line 82
  testRunner.And("I provide the following appointment type for scheduling a slot", ((string)(null)), table15, "And ");
 #line hidden
-#line 83
+#line 85
  testRunner.When("I click on confirmed button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 84
+#line 86
  testRunner.Then("The appointment is created and succesful message with appointment number is shown" +
                         " on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 85
+#line 87
  testRunner.When("I right click and select \"Cut\" on an existing appointment for the \"first\" patient" +
                         " created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 86
+#line 88
  testRunner.Then("A cross icon should show on the appointment for the \"first\" patient created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 87
+#line 89
  testRunner.When("I right click on the next available slot in MRS lane \"MRS ( 4 )\" and select \"Past" +
                         "e\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 88
+#line 90
  testRunner.Then("Appointment details updated success message should appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -421,7 +421,7 @@ this.FeatureBackground();
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Drag and drop an eye exam appointment from one timeslot to another on mrs lane in" +
                     " a corporate store", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 91
+#line 93
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -434,34 +434,34 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 92
+#line 94
  testRunner.Given("Check for slot availablity in MRS lane \"MRS ( 4 )\" for today\'s date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 93
+#line 95
  testRunner.And("I click on the first available slot", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 94
+#line 96
  testRunner.And("I search and open the \"first\" patient created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                             "AppointmentType"});
                 table16.AddRow(new string[] {
                             "Eye Exam"});
-#line 95
+#line 97
  testRunner.And("I provide the following appointment type for scheduling a slot", ((string)(null)), table16, "And ");
 #line hidden
-#line 98
+#line 100
  testRunner.When("I click on confirmed button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 99
+#line 101
  testRunner.Then("The appointment is created and succesful message with appointment number is shown" +
                         " on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 100
+#line 102
  testRunner.When("I drag the existing appointment and drop in the next available slot in MRS lane \"" +
                         "MRS ( 4 )\" for the \"first\" patient created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 101
+#line 103
  testRunner.Then("Appointment details updated success message should appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -479,7 +479,7 @@ this.FeatureBackground();
                     "PositiveTests"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Right Click and validate all options on the created appointment", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 104
+#line 106
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -492,30 +492,30 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 105
+#line 107
  testRunner.Given("Check for slot availablity in MRS lane \"MRS ( 4 )\" for today\'s date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 106
+#line 108
  testRunner.And("I click on the first available slot", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 107
+#line 109
  testRunner.And("I search and open the \"first\" patient created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                             "AppointmentType"});
                 table17.AddRow(new string[] {
                             "Eye Exam"});
-#line 108
+#line 110
  testRunner.And("I provide the following appointment type for scheduling a slot", ((string)(null)), table17, "And ");
 #line hidden
-#line 111
+#line 113
  testRunner.When("I click on confirmed button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 112
+#line 114
  testRunner.Then("The appointment is created and succesful message with appointment number is shown" +
                         " on screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 113
+#line 115
  testRunner.When("I right click on an existing appointment for the \"first\" patient created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
@@ -538,7 +538,7 @@ this.FeatureBackground();
                             "View Journals"});
                 table18.AddRow(new string[] {
                             "Change Store"});
-#line 114
+#line 116
  testRunner.Then("Verify the following options are present in the context menu", ((string)(null)), table18, "Then ");
 #line hidden
             }

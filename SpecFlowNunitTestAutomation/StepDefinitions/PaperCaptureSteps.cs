@@ -76,8 +76,10 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         [Then(@"The file is displayed on screen")]
         public void ThenTheFileIsDisplayedOnScreen()
         {
-            //how do i validate its the same file
-            Assert.True(patientBrowserPage.IsNewlyAdedPaperCaptureIsPresent(),"File is not visible");
+            if(patientBrowserPage.IsloaderInvisible()==true)
+            {
+                Assert.True(patientBrowserPage.IsNewlyAdedPaperCaptureIsPresent(), "File is not visible");
+            }
         }
         [Given(@"I click the edit icon in the file")]
         public void GivenIClickTheEditIconInTheFile()

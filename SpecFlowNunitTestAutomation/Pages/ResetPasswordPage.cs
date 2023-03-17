@@ -17,17 +17,20 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public void EnterUsername(string _username)
         {
+            WaitForElementToBeClickable(Username, 15);
             SendValue(Username, "Username",_username);
         }
 
         public LoginPage ClickResetPassword()
         {
+            WaitForElementToBeClickable(ResetPasswordButton, 15);
             ClickElement(ResetPasswordButton, "Reset Password");
             return new LoginPage();
         }
 
         public string GetUsernameRequiredMessage()
         {
+            WaitForElementToBeVisible(UsernameRequiredMessage, 15);
             return GetTextValue(UsernameRequiredMessage, "Username required message");
         }
     }

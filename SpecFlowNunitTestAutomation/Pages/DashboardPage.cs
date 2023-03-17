@@ -41,17 +41,20 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public string GetCurrentStoreName()
         {
+            WaitForElementToBeVisible(NavigationBarStoreName, 15);
             return GetTextValue(NavigationBarStoreName, "current store");
         }
 
         public PatientBrowserPage selectPatientBrowser()
         {
+            WaitForElementToBeVisible(PatientBrowser, 15);
             ClickElement(PatientBrowser, "Patient Browser");
             return new PatientBrowserPage();
         }
 
         public bool validateDashboardPageIcon()
         {
+            WaitForElementToBeVisible(DashboardpageIcon, 15);
             string dashboardIcon = GetTextValue(DashboardpageIcon, "dashboard icon");
             if (dashboardIcon == "Dashboard")
                 return true;
@@ -61,10 +64,12 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public void GoToSchedulerMenu()
         {
+            WaitForElementToBeClickable(Scheduler, 15);
             ClickElement(Scheduler, "scheduler");
         }
         public void GoToPOSMenu()
         {
+            WaitForElementToBeClickable(POSMenu, 15);
             ClickElement(POSMenu, "POS");
         }
 

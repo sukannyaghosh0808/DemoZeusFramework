@@ -1,7 +1,4 @@
-﻿using Gherkin.CucumberMessages.Types;
-using NPOI.OpenXmlFormats.Wordprocessing;
-using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using NUnit.Framework;
 using SpecFlowNunitTestAutomation.Hooks;
 using SpecFlowNunitTestAutomation.Pages;
 using SpecFlowNunitTestAutomation.TableData;
@@ -17,46 +14,47 @@ using TechTalk.SpecFlow.Assist;
 namespace SpecFlowNunitTestAutomation.StepDefinitions
 {
     [Binding]
-    public sealed class SchedulerPOSPageSteps
+    class POSPageSteps
     {
-        SchedulerPOSPage schedulerPage = new SchedulerPOSPage();
+        SchedulerPOSPage posPage = new SchedulerPOSPage();
         PatientBrowserPage patientBrowserPage = new PatientBrowserPage();
 
+
         [Given(@"Check for slot availablity in MRS lane ""([^""]*)"" for today's date")]
-        public void GivenCheckForSlotAvailablityInMRSLaneForTodaysDate(string p0)
+        public void GivenCheckForSlotAvailablityInMRSLaneForTodaysDate(string lane)
         {
-            Assert.IsTrue(schedulerPage.IsSlotAvailable(),"No slot is available");
-            Thread.Sleep(3000);
+            Assert.True(posPage.IsSlotAvailable(), "No slot is available");
         }
+
 
 
         [Given(@"I click on the first available slot")]
         public void GivenIClickOnTheFirstAvailableSlot()
         {
-            schedulerPage.SelectAvailableSlot();
+            posPage.clickOnFirstAvailableSlot();
+            ReporterClass.AddStepLog("Clicking on first available slot");
+            Thread.Sleep(3000);
         }
-        
+
+
         [Given(@"I search and open the ""([^""]*)"" patient created")]
         public void GivenISearchAndOpenThePatientCreated(string number)
         {
-            if (number == "first")
-            {                
-                string FName = PatientCreateUtil.first_FirstName;
-                string LName = PatientCreateUtil.first_LastName;
-                ReporterClass.AddStepLog("First Name : " + FName);
-                ReporterClass.AddStepLog("First Name : " + LName);
-                patientBrowserPage.EnterDetailsToSearchExistingPatient(FName, LName, string.Empty, string.Empty, string.Empty);
-            }
-            else if(number == "second")
+            if(number == "first")
             {
-                string FName = PatientCreateUtil.SecondPersonFName;
-                string LName = PatientCreateUtil.SecondPersonLName;
-                ReporterClass.AddStepLog("First Name : " + FName);
-                ReporterClass.AddStepLog("First Name : " + LName);
-                patientBrowserPage.EnterDetailsToSearchExistingPatient(FName, LName, string.Empty, string.Empty, string.Empty);
+                patientBrowserPage.EnterDetailsToSearchExistingPatient(PatientCreateUtil.first_FirstName,PatientCreateUtil.first_LastName, string.Empty, string.Empty, string.Empty);
+                ReporterClass.AddStepLog("First Name : " + PatientCreateUtil.first_FirstName);
+                ReporterClass.AddStepLog("First Name : " + PatientCreateUtil.first_LastName);
+
             }
-            patientBrowserPage.SearchPatient();
-            Thread.Sleep(2000);
+            else
+            {
+                patientBrowserPage.EnterDetailsToSearchExistingPatient(PatientCreateUtil.SecondPersonFName, PatientCreateUtil.SecondPersonLName, string.Empty, string.Empty, string.Empty);
+                ReporterClass.AddStepLog("First Name : " + PatientCreateUtil.SecondPersonFName);
+                ReporterClass.AddStepLog("First Name : " + PatientCreateUtil.SecondPersonLName);
+
+            }
+            patientBrowserPage.SearchPatient();            
             patientBrowserPage.DoubleClickOnSearchResult();
             Thread.Sleep(2000);
         }
@@ -67,15 +65,15 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         {
             var data = table.CreateInstance<SchedulerPOSPageTableData>();
             string appointmentType = data.AppointmentType;
-            schedulerPage.SelectAppointmentType(appointmentType);
-            ReporterClass.AddStepLog("Selecting Appointment Type as : "+ appointmentType);
+            posPage.SelectAppointmentType(appointmentType);
+            ReporterClass.AddStepLog("Selecting Appointment Type as : " + appointmentType);
         }
 
 
         [When(@"I click on confirmed button")]
         public void WhenIClickOnConfirmedButton()
         {
-            schedulerPage.clickConfirmedButton();
+            posPage.clickConfirmedButton();
         }
 
 
@@ -92,52 +90,41 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
             }
         }
 
+
         [When(@"I right click and select ""([^""]*)"" on an existing appointment for the ""([^""]*)"" patient created")]
         public void WhenIRightClickAndSelectOnAnExistingAppointmentForThePatientCreated(string action, string number)
         {
-            if(number == "first")
+            if (number == "first")
             {
                 string FName = PatientCreateUtil.first_FirstName;
                 string LName = PatientCreateUtil.first_LastName;
+
                 ReporterClass.AddStepLog("First Name : " + FName);
                 ReporterClass.AddStepLog("First Name : " + LName);
-                schedulerPage.RightClickOnExistingAppointment(FName, LName);
+                posPage.RightClickOnExistingAppointment(FName + " " + LName);
             }
-            else if( number == "second")
+            else if (number == "second")
             {
                 string FName = PatientCreateUtil.SecondPersonFName;
                 string LName = PatientCreateUtil.SecondPersonLName;
                 ReporterClass.AddStepLog("First Name : " + FName);
                 ReporterClass.AddStepLog("First Name : " + LName);
-                schedulerPage.RightClickOnExistingAppointment(FName, LName);
+                posPage.RightClickOnExistingAppointment(FName + " " + LName);
             }
             Thread.Sleep(3000);
-            if(action == "Cut")
+            if (action == "Cut")
             {
-                schedulerPage.CutAppointment();
+                posPage.CutAppointment();
+                ReporterClass.AddStepLog("Select option : Cut");
+
             }
-            else if(action == "Double Book")
+            else if (action == "Double Book")
             {
-                schedulerPage.DoubleBookAppointment();
+                posPage.DoubleBookAppointment();
+                ReporterClass.AddStepLog("Select option : Double Book");
             }
             Thread.Sleep(2000);
         }
-
-
-        [Then(@"A modal window should appear with the message ""([^""]*)""")]
-        public void ThenAModalWindowShouldAppearWithTheMessage(string message)
-        {
-            Assert.AreEqual(message, schedulerPage.GetDoubleBookingConfirmationMessage(),"Modal Window is not displaying correct message....");
-        }
-
-
-
-        [Given(@"I confirm that I want to add another appointment in the same timeslot for a different patient")]
-        public void GivenIConfirmThatIWantToAddAnotherAppointmentInTheSameTimeslotForADifferentPatient()
-        {
-            schedulerPage.ConfirmDoubleBooking();
-        }
-
 
 
         [Then(@"A cross icon should show on the appointment for the ""([^""]*)"" patient created")]
@@ -151,9 +138,9 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
                 ReporterClass.AddStepLog("First Name : " + LName_first);
                 // schedulerPage.RightClickOnExistingAppointment(FName, LName);
                 Thread.Sleep(4000);
-                if(schedulerPage.IsIconLoaderDisappeared() == true)
+                if (posPage.IsIconLoaderDisappeared() == true)
                 {
-                    Assert.True(schedulerPage.IsCrossIconPresent(FName_first, LName_first), "Cross Icon is not visible");
+                    Assert.True(posPage.IsCrossIconPresent(FName_first, LName_first), "Cross Icon is not visible");
                 }
                 ReporterClass.AddStepLog("The Cross Icon after Cut is present on the appointment");
             }
@@ -163,9 +150,8 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
                 string LName_second = PatientCreateUtil.SecondPersonLName;
                 ReporterClass.AddStepLog("First Name : " + FName_second);
                 ReporterClass.AddStepLog("First Name : " + LName_second);
-                schedulerPage.RightClickOnExistingAppointment(FName_second, LName_second);
-            }            
-            //Thread.Sleep(3000);
+                posPage.RightClickOnExistingAppointment(FName_second, LName_second);
+            }
         }
 
 
@@ -173,42 +159,61 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         [When(@"I right click on the next available slot in MRS lane ""([^""]*)"" and select ""([^""]*)""")]
         public void WhenIRightClickOnTheNextAvailableSlotInMRSLaneAndSelect(string lane, string paste)
         {
-            schedulerPage.rightClickOnAvailableSlot();
+            posPage.rightClickOnNextAvailableSlot();
             Thread.Sleep(2000);
-            schedulerPage.PasteAppointment();
+            //posPage.clickOnFirstAvailableSlot();
+            posPage.PasteAppointment();
             Thread.Sleep(2000);
         }
-
 
 
         [Then(@"Appointment details updated success message should appear")]
         public void ThenAppointmentDetailsUpdatedSuccessMessageShouldAppear()
         {
-            Assert.True(schedulerPage.GetToastMessage());
+            Thread.Sleep(3000);
+            Assert.True(posPage.ValidateToastMessage());
+            ReporterClass.AddStepLog(posPage.getToastMessage());
             ReporterClass.AddStepLog("Appointment details updated success message is appearing...");
+            Thread.Sleep(3000);
         }
+
 
 
 
         [When(@"I drag the existing appointment and drop in the next available slot in MRS lane ""([^""]*)"" for the ""([^""]*)"" patient created")]
         public void WhenIDragTheExistingAppointmentAndDropInTheNextAvailableSlotInMRSLaneForThePatientCreated(string p0, string first)
-        {
-            string FName = PatientCreateUtil.first_FirstName;
-            string LName = PatientCreateUtil.first_LastName;
-            schedulerPage.dragAndDropElement(FName, LName);
+        {            
+            posPage.DragAndDropOnNextSlot(PatientCreateUtil.first_FirstName,PatientCreateUtil.first_LastName);
         }
+
+
+
+        [Then(@"A modal window should appear with the message ""([^""]*)""")]
+        public void ThenAModalWindowShouldAppearWithTheMessage(string message)
+        {
+            Assert.AreEqual(message, posPage.GetDoubleBookingConfirmationMessage(), "Modal Window is not displaying correct message....");
+        }
+
+
+        [Given(@"I confirm that I want to add another appointment in the same timeslot for a different patient")]
+        public void GivenIConfirmThatIWantToAddAnotherAppointmentInTheSameTimeslotForADifferentPatient()
+        {
+            posPage.ConfirmDoubleBooking();
+            ReporterClass.AddStepLog("Double Booking Confirm");
+        }
+
 
 
         [When(@"I right click on an existing appointment for the ""([^""]*)"" patient created")]
         public void WhenIRightClickOnAnExistingAppointmentForThePatientCreated(string number)
         {
-            if(number == "first")
+            if (number == "first")
             {
                 string FName = PatientCreateUtil.first_FirstName;
                 string LName = PatientCreateUtil.first_LastName;
-                schedulerPage.RightClickOnExistingAppointment(FName, LName);
-                schedulerPage.MouseHoverOnDoubleBookOption();
-            }           
+                posPage.RightClickOnExistingAppointment(FName, LName);
+                posPage.MouseHoverOnDoubleBookOption();
+            }
         }
 
 
@@ -216,12 +221,12 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         public void ThenVerifyTheFollowingOptionsArePresentInTheContextMenu(Table table)
         {
             var data = table.CreateSet<SchedulerPOSPageTableData>();
-            List<string> options = new List<string>();            
-            foreach(var a in data )
+            List<string> options = new List<string>();
+            foreach (var a in data)
             {
                 options.Add(a.RightClickMenuItems);
             }
-            IList<string> all = schedulerPage.GetAllElementsFromContextMenu();
+            IList<string> all = posPage.GetAllElementsFromContextMenu();
             bool isEqual = Enumerable.SequenceEqual(options.OrderBy(e => e), all.OrderBy(e => e));
             if (isEqual)
             {
@@ -233,5 +238,6 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
                 ReporterClass.AddFailedStepLog("All options are not present in context menu");
             }
         }
+
     }
 }

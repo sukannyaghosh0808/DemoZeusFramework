@@ -140,11 +140,23 @@ namespace SpecFlowNunitTestAutomation.StepDefinitions
         [Given(@"Delete any existing appointments")]
         public void GivenDeleteAnyExistingAppointments()
         {
-            pospage.refresh();
+            /*
             pospage.deleteAllAppointments();            
             Thread.Sleep(3000);
             pospage.DeleteContactLensExam();
             //Console.WriteLine(",,,,,,,,,"+pospage.eyelens());
+            */
+            int totalAppointments = pospage.getTotalNumOfAppointments();
+            ReporterClass.AddStepLog("Total Number of appointments booked for today : " + totalAppointments);
+
+            for(int i= totalAppointments; i>0 ; i--)
+            {
+                Thread.Sleep(3000);
+                string appointmentName = pospage.getAppointmentName(i);
+                //Console.WriteLine(appointmentName);
+                pospage.RightClickOnExistingAppointment(appointmentName);
+                pospage.deleteAllAppointments();
+            }
         }
 
 

@@ -53,8 +53,8 @@ namespace SpecFlowNunitTestAutomation.Hooks
         {
            PatientCreateUtil.CreateFirstPatient();
            cmnActions.CloseBrowser();
-           //PatientCreateUtil.CreateSecondPatient();
-           //cmnActions.CloseBrowser();
+           PatientCreateUtil.CreateSecondPatient();
+           cmnActions.CloseBrowser();
         }
         [BeforeTestRun(Order = 1)]
         public static void CreateExtentHtmlReporter()
@@ -226,7 +226,7 @@ namespace SpecFlowNunitTestAutomation.Hooks
         [AfterScenario(Order = 2)]
         public static void Closedriver(ScenarioContext scenarioContext)
         {
-            //cmnActions.CloseBrowser();
+            cmnActions.CloseBrowser();
         }
 
         [AfterTestRun]

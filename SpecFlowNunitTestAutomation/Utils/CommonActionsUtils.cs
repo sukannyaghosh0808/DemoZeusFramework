@@ -12,6 +12,10 @@ using AutoItX3Lib;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using System.Collections.Generic;
 using static ICSharpCode.SharpZipLib.Zip.ExtendedUnixData;
+using AngleSharp.Dom;
+using SeleniumExtras.WaitHelpers;
+using System.Xml.Linq;
+using NPOI.SS.Formula;
 
 namespace SpecFlowNunitTestAutomation.Utils
 {
@@ -674,13 +678,19 @@ namespace SpecFlowNunitTestAutomation.Utils
 
             try
             {
-                SetElementFocus(SourceElement);
-                new Actions(driver).DragAndDrop(driver.FindElement(SourceElement), driver.FindElement(DestinationElement)).Build().Perform();
-                //new Actions(driver).ClickAndHold(driver.FindElement(SourceElement)).MoveToElement(driver.FindElement(DestinationElement)).Release(driver.FindElement(DestinationElement)).Build().Perform();
+                //SetElementFocus(SourceElement);
+               // new Actions(driver).DragAndDrop(driver.FindElement(SourceElement), driver.FindElement(DestinationElement)).Build().Perform();
+                new Actions(driver).ClickAndHold(driver.FindElement(SourceElement)).MoveToElement(driver.FindElement(DestinationElement)).Release(driver.FindElement(DestinationElement)).Build().Perform();
             }
             catch (Exception ex)
             {
                 Assert.Fail("Failed in dragging: " + SourceElementName + " to " + DestinationElementName + ". Failed logs: " + ex.Message);
+            }
+            finally
+            {
+               SetElementFocus(SourceElement);
+               new Actions(driver).DragAndDrop(driver.FindElement(SourceElement), driver.FindElement(DestinationElement)).Build().Perform();
+
             }
         }
 
@@ -815,10 +825,16 @@ namespace SpecFlowNunitTestAutomation.Utils
                 if (s == "false")
                 {
                     Thread.Sleep(3000);
-                    elements[i].Click();
+                    new WebDriverWait(driver, TimeSpan.FromSeconds(15)).Until(ExpectedConditions.ElementToBeClickable(elements[i]));
+                    //elements[i].Click();
+                    IJavaScriptExecutor executor = (IJavaScriptExecutor)driver;
+                    executor.ExecuteScript("arguments[0].click();", elements[i]);
                     Thread.Sleep(3000);
+
+                    new WebDriverWait(driver, TimeSpan.FromSeconds(15)).Until(ExpectedConditions.ElementToBeClickable(elements[i]));
                     new Actions(driver).DoubleClick(elements[i]).Build().Perform();
                     Thread.Sleep(4000);
+                    //WaitForElementToExist((duration), 20);
                     if (driver.FindElement(duration).GetAttribute("value") != "0")
                     {
                         driver.FindElement(close).Click();
@@ -847,7 +863,8 @@ namespace SpecFlowNunitTestAutomation.Utils
                 {
                     //elements[i].Click();
                     new Actions(driver).DoubleClick(elements[i]).Build().Perform();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(4000);
+                    //WaitForElementToExist((duration),20);
                     if (driver.FindElement(duration).GetAttribute("value") != "0")
                     {
                         driver.FindElement(close).Click();
@@ -872,7 +889,7 @@ namespace SpecFlowNunitTestAutomation.Utils
                 if (s == "false")
                 {
                     new Actions(driver).DoubleClick(elements[i]).Build().Perform();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(4000);
                     if (driver.FindElement(duration).GetAttribute("value") != "0")
                     {
                         driver.FindElement(close).Click();
@@ -913,10 +930,11 @@ namespace SpecFlowNunitTestAutomation.Utils
         public void DeleteExistingElement(By ele2, By ChangeStatusOption, By ChangeStatusCancelled)
         {
             IList<IWebElement> all = driver.FindElements(ele2);
-            for (int i = 0; i <= all.Count; i++)//2
+            Console.WriteLine("total appointment : " + all.Count());
+            for (int i = 0; i <= all.Count; i++)
             {
                 Thread.Sleep(5000);
-                IWebElement element = driver.FindElement(ele2);//first
+                IWebElement element = driver.FindElement(ele2);
                 element.Click();
                 Thread.Sleep(3000);
                 new Actions(driver).ContextClick(element).Build().Perform();

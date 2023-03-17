@@ -35,13 +35,13 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public void EnterUsername(string _username)
         {
-            ClearText(Username, "Username");
-            SendValue(Username, "Username", _username);            
+            //ClearText(Username, "Username");
+            ClearAndSendValue(Username, "Username", _username);            
         }
         public void EnterPassword(string _password)
         {
-            ClearText(Password, "Password");
-            SendValue(Password, "Password", _password);
+            //ClearText(Password, "Password");
+            ClearAndSendValue(Password, "Password", _password);
         }
         public DashboardPage ClickLogin()
         {

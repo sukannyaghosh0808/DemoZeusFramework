@@ -62,8 +62,12 @@ namespace SpecFlowNunitTestAutomation.Pages
         private static By PaperCaptureDeleteConfirmButton = By.XPath("//*[@class='jconfirm-buttons']/button[text()='confirm']");        
         private static By PaperCaptureExistingFile = By.XPath("//*[@name='ScannedFile'][1]");
         private static By PaperCaptureSelectButton = By.XPath("//*[@id='btnSelectFile']");
+        private static By LoaderIcon = By.XPath("//*[@id='loaderWrapper']");
 
-
+        public bool IsloaderInvisible()
+        {
+            return IsElementInVisible(LoaderIcon, 15);
+        }
         public void EnterPatientDetailsToCreateNew(string fname,string lname,string email,string DOB,string address,string zipcode,string gender,string phoneType,string isd,string phNumber)
         {
             //aentering all mandatory fields
@@ -171,14 +175,7 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public void EnterDetailsToSearchExistingPatient(string _firstName, string _lastName, string _phoneNumber, string _dateOfBirth, string _emailID)
         {
-            //Using First Name, Last Name, Phone Number, Date Of Birth and Email
-            /*SendValue(firstnameOnSearchPage, "FirstName", _firstName);
-            SendValue(lastnameOnSearchPage, "Last Name", _lastName);
-            SendValue(Phone, "Phone", _phoneNumber);
-            SendValue(DOBonSearchPage, "DOB", _dateOfBirth);
-            SendValue(EmailOnSearchPage, "Email", _emailID); */
-
-
+            WaitForElementToBeClickable(firstname, 25);
             ClearAndSendValue(firstnameOnSearchPage, "FirstName", _firstName);
             ClearAndSendValue(lastnameOnSearchPage, "Last Name", _lastName);
             ClearAndSendValue(Phone, "Phone", _phoneNumber);
@@ -188,17 +185,18 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public void DeleteFirstName()
         {
+            WaitForElementToExist(firstname, 15);
             ClearText(firstname, "Firstname");
         }
 
         public bool ValidatePhoneWaringMessage(string number)
         {
+            WaitForElementToBeVisible(PhoneNumberConfMessage, 15);
             string popup = GetTextValue(PhoneNumberConfMessage, "confirmation msg");
             if (popup.Contains(number))
                 return true;
             else
                 return false;
-
         }
 
         public void searchPatientWithPhone(string _phoneNumber)
@@ -248,6 +246,7 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public bool isDOBPresent(string dob)
         {
+            WaitForElementToBeVisible(SearchResultFirstRowDOB,20);
             string actual = GetTextValue(SearchResultFirstRowDOB, " ");
             if (actual == dob)
                 return true;
@@ -257,22 +256,24 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public void searchPatientWithDOB(string dob)
         {
+            WaitForElementToBeClickable(DOBonSearchPage, 15);
             SendValue(DOBonSearchPage, "dob", dob);
         }
 
         public string GetNewlyAddedFirstName()
         {
-           // SwitchWindow();
+            WaitForElementToBeVisible(firstname, 15);
             return GetTextValue(firstname,"first name");
         }
         public string GetNewlyAddedLastName()
         {
-            //SwitchWindow();
+            WaitForElementToBeVisible(lastname, 15);
             return GetTextValue(lastname, "last name");
         }
 
         public bool ValidateSearchResultFirstName(string name)
         {
+            WaitForElementToBeVisible(SearchResultFirstName, 15);
             if (name == GetTextValue(SearchResultFirstName, "first name"))
                 return true;
             else
@@ -280,6 +281,7 @@ namespace SpecFlowNunitTestAutomation.Pages
         }
         public bool ValidateSearchResultLastName(string name)
         {
+            WaitForElementToBeVisible(SearchResultLastName, 15);
             if (name == GetTextValue(SearchResultLastName, "last name"))
                 return true;
             else
@@ -288,22 +290,26 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public void ViewFileForFirstPatient()
         {
+            WaitForElementToBeVisible(SearchResultViewFile, 15);
             ClickElement(SearchResultViewFile, "view file");   
         }
 
         public void GoToPatientBrowserTab()
         {
             SwitchWindow();
+            WaitForElementToBeVisible(PaperCaptureTab, 15);
             ClickElement(PaperCaptureTab, "paper capture tab");
         }
 
         public void ClickUploadButton()
-        {
+        {   
+            WaitForElementToBeVisible(PaperCaptureUploadBtn, 15);
             ClickElement(PaperCaptureUploadBtn,"Upload button");
         }
 
         public void ClickScanIcon()
         {
+            WaitForElementToBeVisible(PaperCaptureScanIcon, 15);
             ClickElement(PaperCaptureScanIcon,"scan icon");
         }
 
@@ -324,15 +330,18 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public void EnterpaperCaptureTitle(string title)
         {
+            WaitForElementToBeClickable(PaperCaptureTitle, 15);
             ClearAndSendValue(PaperCaptureTitle, "title", title);
         }
         public void ClickAddPaperCaptureButton()
         {
+            WaitForElementToBeClickable(PaperCaptureAddButton, 15);
             ClickElement(PaperCaptureAddButton, "add button");
         }
 
         public void ClickPaperCaptureViewLink()
         {
+            WaitForElementToBeVisible(PaperCaptureLastAddedFileViewLink, 15);
             ClickElement(PaperCaptureLastAddedFileViewLink, "view link");
         }
 
@@ -343,45 +352,54 @@ namespace SpecFlowNunitTestAutomation.Pages
 
         public void ClickpaperCaptureEditButton()
         {
+            WaitForElementToBeClickable(PaperCaptureEditButton, 15);
             ClickElement(PaperCaptureEditButton, "edit");
         }
 
         public void ClickUpdateButton()
         {
+            WaitForElementToBeClickable(PaperCaptureUpdateButton, 15);
             ClickElement(PaperCaptureUpdateButton, "update");
         }
 
         public void ClosePaperCaptureFile()
         {
+            WaitForElementToBeClickable(PaperCaptureCloseButton, 15);           
             ClickElement(PaperCaptureCloseButton, "close");
         }
 
         public void DeletePaperCapture()
         {
+            WaitForElementToBeClickable(PaperCaptureDeleteButton, 15);
             ClickElement(PaperCaptureDeleteButton, "delete");
         }
 
         public void ConfirmDelete()
         {
+            WaitForElementToBeClickable(PaperCaptureDeleteConfirmButton, 15);
             ClickElement(PaperCaptureDeleteConfirmButton, "confirm delete");
         }
 
         public void ClickPaperCaptureSelectIcon()
         {
+            WaitForElementToBeClickable(PaperCaptureSelectIcon, 15);
             ClickElement(PaperCaptureSelectIcon, "paper capture select icon");
         }
 
         public void SelectExistingFile()
         {
+            WaitForElementToBeClickable(PaperCaptureExistingFile, 15);
             ClickElement(PaperCaptureExistingFile, "existing paper capture file");
         }
         public void PaperCaptureExistingFileSelectButton()
         {
+            WaitForElementToBeClickable(PaperCaptureSelectButton, 15);
             ClickElement(PaperCaptureSelectButton, "select paper capture button");
         }
 
         public void DoubleClickOnSearchResult()
         {
+            WaitForElementToBeVisible(SearchResultFirstName, 25);
             DoubleClick(SearchResultFirstName, "first name");
         }
     }

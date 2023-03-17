@@ -11,7 +11,7 @@ Background:
 	And I go to the POS menu
 	And Delete any existing appointments
 
-@TC_Zeus_POS_0001 @PositiveTests
+	@TC_Zeus_POS_0001 @PositiveTests
 Scenario: Create an eye exam appointment on mrs lane in a corporate store
 	Given Check for slot availablity in MRS lane "MRS ( 4 )" for today's date
 	And I click on the first available slot
@@ -21,7 +21,8 @@ Scenario: Create an eye exam appointment on mrs lane in a corporate store
 		| Eye Exam        |
 	When I click on confirmed button
 	Then The appointment is created and succesful message with appointment number is shown on screen
-	
+
+
 @TC_Zeus_POS_0002 @PositiveTests
 Scenario: Create an eye exam appointment on mrs lane in a franchise store
 #a franchise store range is between 7000 to 7999
@@ -72,6 +73,7 @@ Scenario: Create double eye exam appointment in the same timeslot on mrs lane in
 	When I click on confirmed button
 	Then The appointment is created and succesful message with appointment number is shown on screen
 
+		
 @TC_Zeus_POS_0004 @PositiveTests
 Scenario: Cut and paste an eye exam appointment from one timeslot to another on mrs lane in a corporate store
 	Given Check for slot availablity in MRS lane "MRS ( 4 )" for today's date
